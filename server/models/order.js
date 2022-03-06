@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const User = require("./user");
 
-class Chocolate extends Model {}
+class Order extends Model {}
 
-Chocolate.init(
+Order.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,20 +12,11 @@ Chocolate.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    address: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
-    },
 
-    image: {
-      type: DataTypes.STRING,
-    },
-    price: {
-      type: DataTypes.STRING,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -39,8 +30,8 @@ Chocolate.init(
     timestamps: false,
     freezeTableName: true,
     underscore: true,
-    modelName: "chocolate",
+    modelName: "order",
   }
 );
 
-module.exports = Chocolate;
+module.exports = Order;
