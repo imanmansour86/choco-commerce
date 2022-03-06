@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS choco_db;
+CREATE DATABASE choco_db;
