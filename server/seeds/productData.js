@@ -2,8 +2,8 @@ const { Product } = require("../models");
 
 const productData = [
   {
-    name: "rochee",
-    description: "Chocolate with hazelnut",
+    name: "Milk Strawberry Cream",
+    description: "Chocolate with strawberry cream filling",
     price: 20,
   },
 
