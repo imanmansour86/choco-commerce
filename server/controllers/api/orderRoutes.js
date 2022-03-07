@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Order, User } = require("../../models");
+const { Order, User, OrderDetails, Product } = require("../../models");
 
 //get order for a certain user
 
@@ -27,6 +27,12 @@ router.get("/:userId", async (req, res) => {
         {
           model: User,
           attributes: ["name"],
+        },
+        {
+          model: Product,
+          through: OrderDetails,
+
+          as: "order_product",
         },
       ],
       where: {
