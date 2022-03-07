@@ -36,7 +36,7 @@ OrderDetails.init(
     timestamps: false,
     freezeTableName: true,
     underscore: true,
-    modelName: "order-details",
+    modelName: "order_details",
   }
 );
 
