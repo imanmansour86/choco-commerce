@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const { Order, User, OrderDetails, Product } = require("../../models");
 
-//get order for a certain user
-
+//get all order and display username for each order
 router.get("/", async (req, res) => {
   try {
     const orders = await Order.findAll({
