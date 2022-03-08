@@ -1,0 +1,32 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: red;
+}
+
+nav .navbar-header a {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
+}
+nav .navbar-header a,
+ul li a {
+  color: #f3f7f0;
+}
+nav .navbar-header button .fa {
+  color: #f3f7f0;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 1.5em;
+  position: absolute;
+  top: -0.5px;
+  left: -30px;
+}
+
+.glyphicon-search {
+  color: #2874f0;
+}

@@ -1,5 +1,6 @@
 import React from "react";
+import NavTabs from "./NavTabs";
 
-const MainContiner = () => <div>hello</div>;
+const MainContiner = () => <NavTabs />;
 
 export default MainContiner;
