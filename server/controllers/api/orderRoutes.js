@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Order, User, OrderDetails, Product } = require("../../models");
 
-//get all order and display username for each order
+//get all orders and display username for each order
 router.get("/", async (req, res) => {
   try {
     const orders = await Order.findAll({
@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get order for a userId
+//get order and orderDetails by userId
 router.get("/:userId", async (req, res) => {
   try {
     const order = await Order.findOne({
@@ -43,6 +43,20 @@ router.get("/:userId", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
+  }
+});
+
+//create new order by userId
+router.post("/:userId", async (req, res) => {
+  try {
+    const newOrder = await Order.create({
+      ...req.body,
+      user_id: req.params.userId,
+    });
+    res.status(200).json(newOrder);
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
   }
 });
 
