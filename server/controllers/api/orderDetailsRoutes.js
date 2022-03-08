@@ -19,14 +19,7 @@ router.post("/:orderId", async (req, res) => {
 //get all order-details
 router.get("/", async (req, res) => {
   try {
-    const orderDetails = await OrderDetails.findAll({
-      include: [
-        {
-          model: Order,
-          attributes: ["address"],
-        },
-      ],
-    });
+    const orderDetails = await OrderDetails.findAll({});
     res.json(orderDetails);
   } catch (err) {
     res.status(500).json(err);
