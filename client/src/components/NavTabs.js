@@ -1,12 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavTabs = () => {
   return (
     <div>
-      <nav
-        className="navbar navbar-dark navbar-fixed-top"
-        // style="background-color:#2874f0;"
-      >
+      <nav className="navbar navbar-dark navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
             <button
@@ -38,16 +36,17 @@ const NavTabs = () => {
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <a href="">
-                  <span className="glyphicon glyphicon-shopping-cart"></span>{" "}
-                  Cart
-                  <span className="badge"></span>
+                  <span className="glyphicon glyphicon-home"></span> Home
                 </a>
               </li>
               <li>
-                <a href="">
-                  <span className="glyphicon glyphicon-cog"></span> Settings
-                </a>
+                <Link to={`/cart`}>
+                  <span className="glyphicon glyphicon-shopping-cart"></span>{" "}
+                  Cart
+                  <span className="badge"></span>
+                </Link>
               </li>
+
               <li>
                 <a href="">
                   <span className="glyphicon glyphicon-log-out"></span> Logout

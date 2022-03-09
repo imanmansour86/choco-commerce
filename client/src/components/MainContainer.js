@@ -1,12 +1,14 @@
 import React from "react";
+import { Router, Route, Routes } from "react-router-dom";
 import NavTabs from "./NavTabs";
-import ProductContainer from "./ProductContainer";
+import Home from "./Home";
+import Cart from "./Cart";
 
 const MainContiner = () => {
   return (
     <div>
-      {/* <NavTabs /> */}
-      <ProductContainer />
+      <NavTabs />
+      <Home />
     </div>
   );
 };

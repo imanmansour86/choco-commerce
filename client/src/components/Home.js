@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ProductContainer = () => {
+const Home = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -28,15 +28,17 @@ const ProductContainer = () => {
     return <div>Loading...</div>;
   } else {
     return (
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.name} {product.price}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {products.map((product) => (
+            <li key={product.id}>
+              {product.name} {product.price}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 };
 
-export default ProductContainer;
+export default Home;
