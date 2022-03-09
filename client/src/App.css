@@ -34,3 +34,25 @@ nav .navbar-header button .fa {
 .glyphicon-search {
   color: #2874f0;
 }
+
+.productContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 18rem;
+}
+
+.add-cart {
+  border: 1px solid #a93f55;
+  padding: 4px 14px;
+  background-color: #fff;
+  color: #a93f55;
+  text-transform: uppercase;
+  float: right;
+  margin: 5px 0;
+  font-weight: bold;
+  cursor: pointer;
+}

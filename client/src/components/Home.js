@@ -28,14 +28,27 @@ const Home = () => {
     return <div>Loading...</div>;
   } else {
     return (
-      <div>
-        <ul>
+      <div className="productContainer">
+        <div className="all-items">
           {products.map((product) => (
-            <li key={product.id}>
-              {product.name} {product.price}
-            </li>
+            <div key={product.id} className="card">
+              <img
+                className="card-img-top"
+                src="https://media.istockphoto.com/photos/chocolate-assortment-background-top-view-of-different-kinds-of-picture-id1276645382?b=1&k=20&m=1276645382&s=170667a&w=0&h=ba4ZvgTsuvpIqTzAlYLXVqbcpxVeoKh2cKOUgYoaJN8="
+                alt="Card image cap"
+              />
+              <div className="card-body">
+                <h5 className="card-title">{product.name}</h5>
+                <p className="card-text">
+                  Price: <em>$449</em>
+                </p>
+                <a href="#" className="add-cart btn btn-primary">
+                  ADD TO CART
+                </a>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }
