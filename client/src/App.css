@@ -5,11 +5,15 @@
 }
 
 body {
-  background-color: red;
+  background-color: #f3f7f0;
+  font-family: "Raleway", sans-serif;
+}
+
+.navbar {
+  background-color: #a93f55;
 }
 
 nav .navbar-header a {
-  font-family: "Raleway", sans-serif;
   letter-spacing: 1px;
 }
 nav .navbar-header a,

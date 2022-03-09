@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/imanmansour86/choco-commerce/issues"
   },
-  "homepage": "https://github.com/imanmansour86/choco-commerce#readme"
+  "homepage": "https://github.com/imanmansour86/choco-commerce#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
 }
