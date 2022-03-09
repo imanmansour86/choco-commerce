@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const NavTabs = () => {
   return (
     <div>
-      <nav className="navbar navbar-dark navbar-fixed-top">
+      <nav className="navbar navbar-dark ">
         <div className="container">
           <div className="navbar-header">
             <button

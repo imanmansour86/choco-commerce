@@ -26,9 +26,6 @@ nav .navbar-header button .fa {
   border-radius: 5px;
   padding: 4px 10px;
   font-size: 1.5em;
-  position: absolute;
-  top: -0.5px;
-  left: -30px;
 }
 
 .glyphicon-search {
@@ -36,11 +33,18 @@ nav .navbar-header button .fa {
 }
 
 .productContainer {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.all-items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 20px;
 }
-
 .card {
   width: 18rem;
 }
