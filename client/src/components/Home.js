@@ -6,6 +6,27 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const addToCart = async () => {
+    const cartItem = await fetch(`/api/orders/2`, {
+      method: "POST",
+      body: JSON.stringify({
+        address: "my cool address",
+        user_id: 2,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    console.log("add to cart item", cartItem);
+    if (cartItem.ok) {
+      console.log("Item added to cart");
+    } else {
+      console.error(error);
+      alert("Failed to add item");
+    }
+  };
+
   //fetch data from api as soon as component is loaded
   useEffect(() => {
     fetch("http://localhost:3001/api/products")
@@ -45,7 +66,11 @@ const Home = () => {
                 <p className="card-text">
                   Price: <em>$449</em>
                 </p>
-                <a href="#" className="add-cart btn btn-primary">
+                <a
+                  onClick={addToCart}
+                  href="#"
+                  className="add-cart btn btn-primary"
+                >
                   ADD TO CART
                 </a>
               </div>

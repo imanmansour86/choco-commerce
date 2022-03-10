@@ -9,12 +9,12 @@ import {
 } from "react-router-dom";
 
 import Home from "./components/Home";
-import Cart from "./components/Cart";
 import MainContiner from "./components/MainContainer";
 import SingleProduct from "./components/SingleProduct";
 import NavTabs from "./components/NavTabs";
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/Signup";
+import Cart from "./components/pages/Cart/Cart";
 
 function App() {
   return (
