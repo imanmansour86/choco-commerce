@@ -35,11 +35,9 @@ const NavTabs = () => {
             </form>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a href="">
-                  <Link to={`/`}>
-                    <span className="glyphicon glyphicon-home"></span> Home{" "}
-                  </Link>
-                </a>
+                <Link to={`/`}>
+                  <span className="glyphicon glyphicon-home"></span> Home{" "}
+                </Link>
               </li>
               <li>
                 <Link to={`/cart`}>
@@ -50,9 +48,9 @@ const NavTabs = () => {
               </li>
 
               <li>
-                <a href="">
-                  <span className="glyphicon glyphicon-log-out"></span> Logout
-                </a>
+                <Link to={`/login`}>
+                  <span className="glyphicon glyphicon-log-out"></span> Login
+                </Link>
               </li>
             </ul>
           </div>
