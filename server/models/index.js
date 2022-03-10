@@ -1,7 +1,7 @@
 const User = require("./user");
 const Order = require("./order");
 const Product = require("./product");
-const OrderDetails = require("./order_details");
+const OrderDetails = require("./Order_details");
 
 //Order and Product have many to many relationship through OrderDetails table
 
