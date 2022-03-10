@@ -54,13 +54,6 @@ nav .navbar-header button .fa {
   justify-content: center;
   gap: 0px 20px;
 }
-/* .single-items {
-  display: flex;
-  flex-direction: row;
-
-  align-items: baseline;
-  gap: 10px 20px;
-} */
 
 .card {
   width: 23rem;
@@ -100,7 +93,7 @@ h1 {
   max-width: 360px;
   width: 100%;
   padding: 58px 44px;
-  border: 1px solid ##e1e2f0;
+  border: 1px solid 19323c;
   border-radius: 4px;
   box-shadow: 0 0 5px 0 rgba(42, 45, 48, 0.12);
   transition: all 0.3s ease;
@@ -144,7 +137,6 @@ h1 {
   border: none;
   border-radius: 100px;
   cursor: pointer;
-
   margin-top: 15px;
   transition: background 0.2s ease-out;
 }
