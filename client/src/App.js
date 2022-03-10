@@ -10,6 +10,7 @@ import {
 import Home from "./components/Home";
 import Cart from "./components/Cart";
 import MainContiner from "./components/MainContainer";
+import SingleProduct from "./components/SingleProduct";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainContiner />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
     </Router>
   );

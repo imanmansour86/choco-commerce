@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -38,7 +39,9 @@ const Home = () => {
                 alt="Card image cap"
               />
               <div className="card-body">
-                <h5 className="card-title">{product.name}</h5>
+                <Link to={`/products/${product.id}`}>
+                  <h5 className="card-title">{product.name}</h5>
+                </Link>
                 <p className="card-text">
                   Price: <em>$449</em>
                 </p>
