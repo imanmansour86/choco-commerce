@@ -48,7 +48,7 @@ const NavTabs = () => {
               </li>
 
               <li>
-                <Link to={`/login`}>
+                <Link to={`/signup`}>
                   <span className="glyphicon glyphicon-log-out"></span> Login
                 </Link>
               </li>
