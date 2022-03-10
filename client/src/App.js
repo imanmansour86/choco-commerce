@@ -13,6 +13,7 @@ import Cart from "./components/Cart";
 import MainContiner from "./components/MainContainer";
 import SingleProduct from "./components/SingleProduct";
 import NavTabs from "./components/NavTabs";
+import Login from "./components/pages/Login";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <NavTabs />
       <Routes>
         <Route path="/" element={<MainContiner />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
