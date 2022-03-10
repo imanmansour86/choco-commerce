@@ -12,10 +12,12 @@ import Home from "./components/Home";
 import Cart from "./components/Cart";
 import MainContiner from "./components/MainContainer";
 import SingleProduct from "./components/SingleProduct";
+import NavTabs from "./components/NavTabs";
 
 function App() {
   return (
     <Router>
+      <NavTabs />
       <Routes>
         <Route path="/" element={<MainContiner />} />
         <Route path="/cart" element={<Cart />} />

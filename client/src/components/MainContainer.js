@@ -7,7 +7,6 @@ import Cart from "./Cart";
 const MainContiner = () => {
   return (
     <div>
-      <NavTabs />
       <Home />
     </div>
   );
