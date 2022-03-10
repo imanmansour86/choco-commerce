@@ -36,7 +36,9 @@ const NavTabs = () => {
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <a href="">
-                  <span className="glyphicon glyphicon-home"></span> Home
+                  <Link to={`/`}>
+                    <span className="glyphicon glyphicon-home"></span> Home{" "}
+                  </Link>
                 </a>
               </li>
               <li>
