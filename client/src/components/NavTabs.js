@@ -16,7 +16,7 @@ const NavTabs = () => {
               <i className="fa fa-bars"></i>
             </button>
             <a className="navbar-brand" href="#">
-              LaRoche Chocolate
+              <Link to={`/about`}> LaRoche Chocolate</Link>
             </a>
           </div>
 

@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const routes = require("./controllers");
+// const { authMiddleware } = require("./utils/auth");
 const cors = require("cors");
 
 const sequelize = require("./config/connection");

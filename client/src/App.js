@@ -15,6 +15,7 @@ import SingleProduct from "./components/SingleProduct";
 import NavTabs from "./components/NavTabs";
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/Signup";
+import About from "./components/pages/about";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <NavTabs />
       <Routes>
         <Route path="/" element={<MainContiner />} />
+        <Route path="/about" element={<About />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products/:id" element={<SingleProduct />} />
