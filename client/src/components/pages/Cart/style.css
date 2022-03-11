@@ -42,3 +42,7 @@
 .btn-warning {
   background: #a93f55;
 }
+
+.checkbtn {
+  background: transparent !important;
+}
