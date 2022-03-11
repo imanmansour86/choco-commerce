@@ -7,7 +7,7 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-
+import { StoreProvider } from "./utils/GlobalState";
 import Home from "./components/Home";
 import MainContiner from "./components/MainContainer";
 import SingleProduct from "./components/SingleProduct";
@@ -19,13 +19,15 @@ import Cart from "./components/pages/Cart/Cart";
 function App() {
   return (
     <Router>
-      <NavTabs />
-      <Routes>
-        <Route path="/" element={<MainContiner />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/products/:id" element={<SingleProduct />} />
-      </Routes>
+      <StoreProvider>
+        <NavTabs />
+        <Routes>
+          <Route path="/" element={<MainContiner />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
+        </Routes>
+      </StoreProvider>
     </Router>
   );
 }
