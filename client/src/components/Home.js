@@ -6,8 +6,8 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const addToCart = async () => {
-    const cartItem = await fetch(`/api/orders/2`, {
+  const addToCart = async (id, quantity) => {
+    const cartItem = await fetch(`http://localhost:3001/api/orders/2`, {
       method: "POST",
       body: JSON.stringify({
         address: "my cool address",
@@ -67,7 +67,7 @@ const Home = () => {
                   Price: <em>$449</em>
                 </p>
                 <a
-                  onClick={addToCart}
+                  onClick={(e) => addToCart(product.id, 1)}
                   href="#"
                   className="add-cart btn btn-primary"
                 >
