@@ -17,7 +17,7 @@ const Cart = () => {
               />
             </div>
             <div className="d-flex flex-column align-items-center product-details">
-              <span className="font-weight-bold">Milk Chocolate</span>
+              <span className=" text-blue">Milk Chocolate</span>
             </div>
             <div className="d-flex flex-row align-items-center qty">
               <i className="fa fa-minus text-danger"></i>
@@ -25,7 +25,7 @@ const Cart = () => {
               <i className="fa fa-plus text-success"></i>
             </div>
             <div>
-              <h5 className="text-grey">$20.00</h5>
+              <h5 className="text-blue">$20.00</h5>
             </div>
             <div className="d-flex align-items-center">
               <i className="fa fa-trash mb-1 text-danger"></i>
@@ -33,17 +33,7 @@ const Cart = () => {
           </div>
 
           <div className="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-            <input
-              type="text"
-              className="form-control border-0 gift-card"
-              placeholder="discount code/gift card"
-            />
-            <button
-              className="btn btn-outline-warning btn-sm ml-2"
-              type="button"
-            >
-              Apply
-            </button>
+            <div className="text-grey">Order Total: 20$</div>
           </div>
           <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
             <button
