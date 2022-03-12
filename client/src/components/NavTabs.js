@@ -42,13 +42,22 @@ const NavTabs = () => {
                   <span className="glyphicon glyphicon-home"></span> Home{" "}
                 </Link>
               </li>
-              <li>
-                <Link to={`/cart`}>
-                  <span className="glyphicon glyphicon-shopping-cart"></span>{" "}
-                  Cart {state.cartItems.length}
-                  <span className="badge"></span>
-                </Link>
-              </li>
+
+              {Auth.loggedIn() ? (
+                <li>
+                  <Link to={`/cart`}>
+                    <span className="glyphicon glyphicon-shopping-cart"></span>{" "}
+                    Cart {state.cartItems.length}
+                    <span className="badge"></span>
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link to={`/signup`}>
+                    <span className="glyphicon glyphicon-log-out"></span> Cart
+                  </Link>
+                </li>
+              )}
 
               {Auth.loggedIn() ? (
                 <li>
