@@ -35,27 +35,27 @@ const SignUp = () => {
       <h1>SignUp</h1>
       <form className="sign-up" onSubmit={handleFormSubmit}>
         <div className="row">
-          <label for="email">Name</label>
+          <label htmlFor="email">Name</label>
           <input
             id="signupName"
             type="text"
             name="name"
-            autocomplete="off"
+            autoComplete="off"
             placeholder="Enter name"
           />
         </div>
         <div className="row">
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             id="signupEmail"
             type="email"
             name="email"
-            autocomplete="off"
+            autoComplete="off"
             placeholder="email@example.com"
           />
         </div>
         <div className="row">
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input type="password" id="signupPassword" name="password" />
         </div>
         <button className="sign" type="submit">

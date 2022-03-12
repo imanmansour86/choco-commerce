@@ -31,17 +31,17 @@ const Login = () => {
       <h1>Login</h1>
       <form onSubmit={handleFormSubmit} className="sign-in">
         <div className="row">
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             id="signupEmail"
             type="email"
             name="email"
-            autocomplete="off"
+            autoComplete="off"
             placeholder="email@example.com"
           />
         </div>
         <div className="row">
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input id="signupPassword" type="password" name="password" />
         </div>
         <button className="sign" type="submit">
