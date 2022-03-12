@@ -1,7 +1,10 @@
 import React from "react";
+import { useStoreContext } from "../../../utils/GlobalState";
 import "./style.css";
 
 const Cart = () => {
+  const [state, dispatch] = useStoreContext();
+
   return (
     <div className="container mt-5 mb-5">
       <div className="d-flex justify-content-center row">

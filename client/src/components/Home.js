@@ -1,30 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ADD_TO_CART } from "../utils/actions";
+import { useStoreContext } from "../utils/GlobalState";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const addToCart = async (id, quantity) => {
-    const cartItem = await fetch(`http://localhost:3001/api/orders/2`, {
-      method: "POST",
-      body: JSON.stringify({
-        address: "my cool address",
-        user_id: 2,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const [state, dispatch] = useStoreContext();
 
-    console.log("add to cart item", cartItem);
-    if (cartItem.ok) {
-      console.log("Item added to cart");
-    } else {
-      console.error(error);
-      alert("Failed to add item");
-    }
+  const addToCart = () => {
+    dispatch({
+      type: ADD_TO_CART,
+      product: { products, purchaseQuantity: 1 },
+    });
   };
 
   //fetch data from api as soon as component is loaded
@@ -67,7 +57,7 @@ const Home = () => {
                   Price: <em>$449</em>
                 </p>
                 <a
-                  onClick={(e) => addToCart(product.id, 1)}
+                  onClick={addToCart}
                   href="#"
                   className="add-cart btn btn-primary"
                 >
