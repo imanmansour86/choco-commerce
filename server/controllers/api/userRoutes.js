@@ -57,7 +57,11 @@ router.post("/signUp", async (req, res, next) => {
       password: await bcrypt.hash(req.body.password, salt),
     };
     created_user = await User.create(user);
-    res.status(201).json(created_user);
+    token = jwt.sign(
+      { id: user.id, email: user.email, name: user.name },
+      process.env.SECRET
+    );
+    res.status(201).json({ created_user, token: token });
   } catch (err) {
     res.status(400).json(err);
   }
