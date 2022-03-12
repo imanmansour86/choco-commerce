@@ -10,10 +10,10 @@ const Home = () => {
 
   const [state, dispatch] = useStoreContext();
 
-  const addToCart = () => {
+  const addToCart = (id) => {
     dispatch({
       type: ADD_TO_CART,
-      product: { products, purchaseQuantity: 1 },
+      cartItem: { id, purchaseQuantity: 1 },
     });
   };
 
@@ -57,7 +57,7 @@ const Home = () => {
                   Price: <em>$449</em>
                 </p>
                 <a
-                  onClick={addToCart}
+                  onClick={() => addToCart(product.id)}
                   href="#"
                   className="add-cart btn btn-primary"
                 >
@@ -67,6 +67,7 @@ const Home = () => {
             </div>
           ))}
         </div>
+        <div>{JSON.stringify(state)}</div>
       </div>
     );
   }
