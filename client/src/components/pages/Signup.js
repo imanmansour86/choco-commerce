@@ -13,7 +13,7 @@ const handleFormSubmit = async (event) => {
 
   console.log("signup", name, email, password);
   if (name && email && password) {
-    fetch("http://localhost:3001/api/users/signUp", {
+    fetch("http://localhost:3001/api/users", {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
       headers: { "Content-Type": "application/json" },
