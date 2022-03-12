@@ -17,20 +17,17 @@ const handleFormSubmit = async (event) => {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
       headers: { "Content-Type": "application/json" },
-    }).then(
-      (result) => {
-        // if (result.ok) {
-
-        //   } else {
-        //     alert(response.statusText);
-        //   }
-
-        console.log("result", result);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    })
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log("result", result.token);
+          Auth.login(result.token);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 };
 
