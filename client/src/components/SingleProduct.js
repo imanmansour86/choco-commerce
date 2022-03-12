@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useStoreContext } from "../utils/GlobalState";
+import { ADD_TO_CART } from "../utils/actions";
 
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [state, dispatch] = useStoreContext();
+
+  const addToCart = (product) => {
+    dispatch({
+      type: ADD_TO_CART,
+      cartItem: { product, purchaseQuantity: 1 },
+    });
+  };
 
   const { id } = useParams();
   //fetch data from api as soon as component is loaded
@@ -44,7 +54,11 @@ const SingleProduct = () => {
               <p className="card-text">
                 Price: <em>$449</em>
               </p>
-              <a href="#" className="add-cart single-add-cart btn btn-primary">
+              <a
+                onClick={() => addToCart(product)}
+                href="#"
+                className="add-cart single-add-cart btn btn-primary"
+              >
                 ADD TO CART
               </a>
             </div>
