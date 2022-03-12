@@ -3,21 +3,6 @@ const { User } = require("../../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-router.post("/", async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
 //get all users
 router.get("/", async (req, res) => {
   try {
@@ -28,32 +13,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get all users
-router.get(
-  "/me",
-  async (req, res, next) => {
-    try {
-      let token = req.headers["authorization"].split(" ")[1];
-      let decoded = jwt.verify(token, process.env.SECRET);
-      req.user = decoded;
-      next();
-    } catch (err) {
-      res.status(401).json({ msg: "Couldnt Authenticate" });
-    }
-  },
-  async (req, res, next) => {
-    let user = await User.findOne({
-      where: { id: req.user.id },
-      attributes: { exclude: ["password"] },
-    });
-    if (user === null) {
-      res.status(404).json({ msg: "User not found" });
-    }
-    res.status(200).json(user);
-  }
-);
-
-router.post("/login", async (req, res) => {
+//post a new user-login
+router.post("/", async (req, res) => {
   try {
     const user = await User.findOne({ where: { email: req.body.email } });
 
