@@ -10,10 +10,10 @@ const Home = () => {
 
   const [state, dispatch] = useStoreContext();
 
-  const addToCart = (id) => {
+  const addToCart = (product) => {
     dispatch({
       type: ADD_TO_CART,
-      cartItem: { id, purchaseQuantity: 1 },
+      cartItem: { product, purchaseQuantity: 1 },
     });
   };
 
@@ -57,7 +57,7 @@ const Home = () => {
                   Price: <em>$449</em>
                 </p>
                 <a
-                  onClick={() => addToCart(product.id)}
+                  onClick={() => addToCart(product)}
                   href="#"
                   className="add-cart btn btn-primary"
                 >
