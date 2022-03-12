@@ -50,7 +50,7 @@ const NavTabs = () => {
 
               {Auth.loggedIn() ? (
                 <li>
-                  <Link to={`/`}>
+                  <Link to={`/`} onClick={() => Auth.logout()}>
                     <span className="glyphicon glyphicon-log-out"></span> Logout
                   </Link>
                 </li>
