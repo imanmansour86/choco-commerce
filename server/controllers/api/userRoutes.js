@@ -1,59 +1,35 @@
 const router = require("express").Router();
 const { User } = require("../../models");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
-router.post("/", async (req, res) => {
+//get all users
+router.get("/", async (req, res) => {
   try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
+    const users = await User.findAll({});
+    res.json(users);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
-router.post("/login", async (req, res) => {
+//post a new user-login
+router.post("/", async (req, res, next) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
+    const salt = await bcrypt.genSalt(10);
+    const user = {
+      name: req.body.name,
+      email: req.body.email,
+      password: await bcrypt.hash(req.body.password, salt),
+    };
+    created_user = await User.create(user);
+    token = jwt.sign(
+      { id: user.id, email: user.email, name: user.name },
+      process.env.SECRET
+    );
+    res.status(201).json({ created_user, token: token });
   } catch (err) {
     res.status(400).json(err);
-  }
-});
-
-router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
   }
 });
 
