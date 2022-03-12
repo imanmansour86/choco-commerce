@@ -24,13 +24,21 @@ const Cart = () => {
                   width="70"
                 />
               </div>
-              <div className="d-flex flex-column align-items-center product-details">
+              <div className="d-flex flex-column align-items-center ">
                 <span className=" text-blue">{item.product.name}</span>
               </div>
               <div className="d-flex flex-row align-items-center qty">
-                <i className="fa fa-minus text-danger"></i>
+                <input
+                  placeholder="1"
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="9"
+                />
+                {/* <i className="fa fa-minus text-danger"></i>
                 <h5 className="text-grey mt-1 mr-1 ml-1">2</h5>
-                <i className="fa fa-plus text-success"></i>
+                <i className="fa fa-plus text-success"></i> */}
               </div>
               <div>
                 <h5 className="text-blue">{item.product.price}</h5>
