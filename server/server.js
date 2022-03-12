@@ -1,12 +1,10 @@
 //Requirements
 const path = require("path");
 const express = require("express");
-const session = require("express-session");
 const routes = require("./controllers");
 const cors = require("cors");
 
 const sequelize = require("./config/connection");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,18 +16,6 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
-
-const sess = {
-  secret: "Super secret secret",
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
-};
-
-app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
