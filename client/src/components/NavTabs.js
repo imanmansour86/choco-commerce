@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
+import { useStoreContext } from "../utils/GlobalState";
 
 const NavTabs = () => {
+  const [state, dispatch] = useStoreContext();
   return (
     <div>
       <nav className="navbar navbar-dark ">
@@ -40,13 +42,22 @@ const NavTabs = () => {
                   <span className="glyphicon glyphicon-home"></span> Home{" "}
                 </Link>
               </li>
-              <li>
-                <Link to={`/cart`}>
-                  <span className="glyphicon glyphicon-shopping-cart"></span>{" "}
-                  Cart
-                  <span className="badge"></span>
-                </Link>
-              </li>
+
+              {Auth.loggedIn() ? (
+                <li>
+                  <Link to={`/cart`}>
+                    <span className="glyphicon glyphicon-shopping-cart"></span>{" "}
+                    Cart {state.cartItems.length}
+                    <span className="badge"></span>
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link to={`/signup`}>
+                    <span className="glyphicon glyphicon-log-out"></span> Cart
+                  </Link>
+                </li>
+              )}
 
               {Auth.loggedIn() ? (
                 <li>
@@ -61,12 +72,6 @@ const NavTabs = () => {
                   </Link>
                 </li>
               )}
-
-              {/* <li>
-                <Link to={`/signup`}>
-                  <span className="glyphicon glyphicon-log-out"></span> Login
-                </Link>
-              </li> */}
             </ul>
           </div>
         </div>
