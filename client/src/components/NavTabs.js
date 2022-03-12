@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 const NavTabs = () => {
   return (
@@ -47,11 +48,25 @@ const NavTabs = () => {
                 </Link>
               </li>
 
-              <li>
+              {Auth.loggedIn() ? (
+                <li>
+                  <Link to={`/`}>
+                    <span className="glyphicon glyphicon-log-out"></span> Logout
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link to={`/signup`}>
+                    <span className="glyphicon glyphicon-log-out"></span> Login
+                  </Link>
+                </li>
+              )}
+
+              {/* <li>
                 <Link to={`/signup`}>
                   <span className="glyphicon glyphicon-log-out"></span> Login
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
