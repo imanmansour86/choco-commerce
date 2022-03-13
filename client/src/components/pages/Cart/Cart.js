@@ -1,9 +1,17 @@
 import React from "react";
 import { useStoreContext } from "../../../utils/GlobalState";
+import { REMOVE_FROM_CART } from "../../../utils/actions";
 import "./style.css";
 
 const Cart = () => {
   const [{ cartItems }, dispatch] = useStoreContext();
+
+  const removeFromCart = (product) => {
+    dispatch({
+      type: REMOVE_FROM_CART,
+      cartItem: product.id,
+    });
+  };
 
   console.log("state", cartItems);
   return (
@@ -44,7 +52,10 @@ const Cart = () => {
                 <h5 className="text-blue">{item.product.price}</h5>
               </div>
               <div className="d-flex align-items-center">
-                <i className="fa fa-trash mb-1 text-danger"></i>
+                <i
+                  onClick={() => removeFromCart(item.product.id)}
+                  className="fa fa-trash mb-1 text-danger"
+                ></i>
               </div>
             </div>
           ))}
