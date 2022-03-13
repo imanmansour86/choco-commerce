@@ -7,9 +7,10 @@ const Cart = () => {
   const [{ cartItems }, dispatch] = useStoreContext();
 
   const removeFromCart = (product) => {
+    console.log("btn clicked", product);
     dispatch({
       type: REMOVE_FROM_CART,
-      cartItem: product.id,
+      cartItem: product,
     });
   };
 
@@ -53,7 +54,7 @@ const Cart = () => {
               </div>
               <div className="d-flex align-items-center">
                 <i
-                  onClick={() => removeFromCart(item.product.id)}
+                  onClick={() => removeFromCart(item.product)}
                   className="fa fa-trash mb-1 text-danger"
                 ></i>
               </div>

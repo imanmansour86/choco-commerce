@@ -22,9 +22,12 @@ export const reducer = (state, action) => {
 
     case REMOVE_FROM_CART:
       let newState = state.cartItems.filter((product) => {
-        return product._id !== action._id;
+        console.log("the entire product to remove is", product.product.id);
+        return product.product.id !== action.cartItem.id;
       });
 
+      console.log("action.cart item", action.cartItem.id);
+      console.log("new state after filter is an array", newState);
       return {
         ...state,
         cartItems: newState,
@@ -33,7 +36,6 @@ export const reducer = (state, action) => {
     case CLEAR_CART:
       return {
         ...state,
-        cartOpen: false,
         cart: [],
       };
 
