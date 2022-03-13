@@ -1,9 +1,26 @@
 import React from "react";
 import { useStoreContext } from "../../../utils/GlobalState";
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../../utils/actions";
 import "./style.css";
 
 const Cart = () => {
   const [{ cartItems }, dispatch] = useStoreContext();
+
+  const removeFromCart = (product) => {
+    console.log("btn clicked", product);
+    dispatch({
+      type: REMOVE_FROM_CART,
+      cartItem: product,
+    });
+  };
+
+  const onChange = (purchaseQuantity, product) => {
+    dispatch({
+      type: UPDATE_CART_QUANTITY,
+      cartItem: product,
+      purchaseQuantity: parseInt(purchaseQuantity),
+    });
+  };
 
   console.log("state", cartItems);
   return (
@@ -24,19 +41,32 @@ const Cart = () => {
                   width="70"
                 />
               </div>
-              <div className="d-flex flex-column align-items-center product-details">
+              <div className="d-flex flex-column align-items-center ">
                 <span className=" text-blue">{item.product.name}</span>
               </div>
               <div className="d-flex flex-row align-items-center qty">
-                <i className="fa fa-minus text-danger"></i>
+                <input
+                  placeholder="1"
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="9"
+                  value={item.purchaseQuantity}
+                  onChange={(e) => onChange(e.target.value, item.product)}
+                />
+                {/* <i className="fa fa-minus text-danger"></i>
                 <h5 className="text-grey mt-1 mr-1 ml-1">2</h5>
-                <i className="fa fa-plus text-success"></i>
+                <i className="fa fa-plus text-success"></i> */}
               </div>
               <div>
                 <h5 className="text-blue">{item.product.price}</h5>
               </div>
               <div className="d-flex align-items-center">
-                <i className="fa fa-trash mb-1 text-danger"></i>
+                <i
+                  onClick={() => removeFromCart(item.product)}
+                  className="fa fa-trash mb-1 text-danger"
+                ></i>
               </div>
             </div>
           ))}
