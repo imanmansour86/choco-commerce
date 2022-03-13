@@ -2,6 +2,15 @@ import React from "react";
 import { useStoreContext } from "../../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../../utils/actions";
 import "./style.css";
+import { Elements } from "@stripe/react-stripe-js";
+
+import { Link } from "react-router-dom";
+
+// const Wrapper = (props) => (
+//   <Elements stripe={stripePromise}>
+//     <Cart {...props} />
+//   </Elements>
+// );
 
 const Cart = () => {
   const [{ cartItems }, dispatch] = useStoreContext();
@@ -79,7 +88,7 @@ const Cart = () => {
               className="btn btn-warning btn-block btn-lg ml-2 pay-button"
               type="button"
             >
-              Proceed Checkout
+              <Link to={`/checkout`}>Proceed Checkout</Link>
             </button>
           </div>
         </div>

@@ -3,6 +3,11 @@ const path = require("path");
 const express = require("express");
 const routes = require("./controllers");
 const cors = require("cors");
+// const SERVER_CONFIGS = require("./constants/server");
+// const bodyParser = require("body-parser");
+// const CORS_WHITELIST = require("./constants/frontend");
+
+// const configureRoutes = require("./routes");
 
 const sequelize = require("./config/connection");
 
@@ -22,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
+// configureRoutes(app);
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {

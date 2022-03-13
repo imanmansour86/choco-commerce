@@ -15,7 +15,25 @@ import NavTabs from "./components/NavTabs";
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/Signup";
 import Cart from "./components/pages/Cart/Cart";
+import CheckoutForm from "./components/pages/CheckoutForm";
 
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+// const stripePromise = loadStripe(
+//   "pk_test_51KbALaFc4X4KsU22jdX47Ta9QxT1GUQGJhzzsypQbExkjRSUDyf8c9F4CaEMj741evosIEXTzEr3lAO2Ib425vsb00DACZuj78"
+// );
+
+// const WrappedCheckoutForm = () => {
+//   const options = {
+//     // passing the client secret obtained from the server
+//     clientSecret: `sk_test_51KbALaFc4X4KsU222Lb1jwB475VSo6O8ntIarZCycJMa39T2WdksUTezDEBAG28gj02JjcHHjbH1FD2xgBMMrFPk00LLJ3fRYI`,
+//   };
+//   return (
+//     <Elements stripe={stripePromise} options={options}>
+//       <CheckoutForm />
+//     </Elements>
+//   );
+// };
 function App() {
   return (
     <Router>
@@ -25,6 +43,16 @@ function App() {
           <Route path="/" element={<MainContiner />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/checkout"
+            element={
+              <CheckoutForm
+                name={"LaRoche Chocolate"}
+                description={"Item that you sold"}
+                amount={4.99}
+              />
+            }
+          />
           <Route path="/products/:id" element={<SingleProduct />} />
         </Routes>
       </StoreProvider>
