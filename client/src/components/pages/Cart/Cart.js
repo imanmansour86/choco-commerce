@@ -1,6 +1,6 @@
 import React from "react";
 import { useStoreContext } from "../../../utils/GlobalState";
-import { REMOVE_FROM_CART } from "../../../utils/actions";
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../../utils/actions";
 import "./style.css";
 
 const Cart = () => {
@@ -11,6 +11,14 @@ const Cart = () => {
     dispatch({
       type: REMOVE_FROM_CART,
       cartItem: product,
+    });
+  };
+
+  const onChange = (purchaseQuantity, product) => {
+    dispatch({
+      type: UPDATE_CART_QUANTITY,
+      cartItem: product,
+      purchaseQuantity: parseInt(purchaseQuantity),
     });
   };
 
@@ -44,6 +52,8 @@ const Cart = () => {
                   name="quantity"
                   min="1"
                   max="9"
+                  value={item.purchaseQuantity}
+                  onChange={(e) => onChange(e.target.value, item.product)}
                 />
                 {/* <i className="fa fa-minus text-danger"></i>
                 <h5 className="text-grey mt-1 mr-1 ml-1">2</h5>
