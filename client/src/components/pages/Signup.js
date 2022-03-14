@@ -11,7 +11,7 @@ const handleFormSubmit = async (event) => {
 
   console.log("signup", name, email, password);
   if (name && email && password) {
-    fetch("https://peaceful-gorge-21480.herokuapp.com/api/users", {
+    fetch("http://localhost:3001/api/users", {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
       headers: { "Content-Type": "application/json" },

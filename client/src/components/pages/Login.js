@@ -9,7 +9,7 @@ const handleFormSubmit = async (event) => {
   const password = document.getElementById("signupPassword").value.trim();
 
   if (email && password) {
-    fetch("https://peaceful-gorge-21480.herokuapp.com/api/users/login", {
+    fetch("http://localhost:3001/api/users/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },

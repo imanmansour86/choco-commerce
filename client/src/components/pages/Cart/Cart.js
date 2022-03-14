@@ -10,13 +10,15 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../CheckoutForm";
 import { Link } from "react-router-dom";
 import Auth from "../../../utils/auth";
-
+import LightSpeed from "react-reveal/LightSpeed";
 // const Wrapper = (props) => (
 //   <Elements stripe={stripePromise}>
 //     <Cart {...props} />
 //   </Elements>
 // );
 import gif from "../../../assets/emptycart.gif";
+import Spin from "react-reveal/Spin";
+import Swing from "react-reveal/Swing";
 
 const Cart = () => {
   const [{ cartItems }, dispatch] = useStoreContext();
@@ -100,45 +102,47 @@ const Cart = () => {
 
             {returnedWithFailure && <div>Your payment failed</div>}
             {cartItems.map((item) => (
-              <div
-                key={item.product.id}
-                className="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded"
-              >
-                <div className="mr-1">
-                  <img
-                    className="rounded"
-                    src="https://i.imgur.com/XiFJkhI.jpg"
-                    width="70"
-                  />
-                </div>
-                <div className="d-flex flex-column align-items-center ">
-                  <span className=" text-blue">{item.product.name}</span>
-                </div>
-                <div className="d-flex flex-row align-items-center qty">
-                  <input
-                    placeholder="1"
-                    type="number"
-                    id="quantity"
-                    name="quantity"
-                    min="1"
-                    max="9"
-                    value={item.purchaseQuantity}
-                    onChange={(e) => onChange(e.target.value, item.product)}
-                  />
-                  {/* <i className="fa fa-minus text-danger"></i>
+              <LightSpeed left>
+                <div
+                  key={item.product.id}
+                  className="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded"
+                >
+                  <div className="mr-1">
+                    <img
+                      className="rounded"
+                      src="https://i.imgur.com/XiFJkhI.jpg"
+                      width="70"
+                    />
+                  </div>
+                  <div className="d-flex flex-column align-items-center ">
+                    <span className=" text-blue">{item.product.name}</span>
+                  </div>
+                  <div className="d-flex flex-row align-items-center qty">
+                    <input
+                      placeholder="1"
+                      type="number"
+                      id="quantity"
+                      name="quantity"
+                      min="1"
+                      max="9"
+                      value={item.purchaseQuantity}
+                      onChange={(e) => onChange(e.target.value, item.product)}
+                    />
+                    {/* <i className="fa fa-minus text-danger"></i>
                 <h5 className="text-grey mt-1 mr-1 ml-1">2</h5>
                 <i className="fa fa-plus text-success"></i> */}
+                  </div>
+                  <div>
+                    <h5 className="text-blue">{item.product.price}</h5>
+                  </div>
+                  <div className="d-flex align-items-center">
+                    <i
+                      onClick={() => removeFromCart(item.product)}
+                      className="fa fa-trash mb-1 text-danger"
+                    ></i>
+                  </div>
                 </div>
-                <div>
-                  <h5 className="text-blue">{item.product.price}</h5>
-                </div>
-                <div className="d-flex align-items-center">
-                  <i
-                    onClick={() => removeFromCart(item.product)}
-                    className="fa fa-trash mb-1 text-danger"
-                  ></i>
-                </div>
-              </div>
+              </LightSpeed>
             ))}
 
             {cartItems.length > 0 ? (
@@ -166,16 +170,19 @@ const Cart = () => {
               </div>
             ) : (
               <div>
-                <h2>Your shopping cart is empty</h2>
-                <h2>
-                  Shop all our deliciousness <Link to="/">here!</Link>
-                </h2>
-                <iframe
-                  src={require("../../../assets/emptycart.gif")}
-                  width={900}
-                  height={1000}
-                  frameBorder="0"
-                ></iframe>
+                <Swing>
+                  <h2>Your shopping cart is empty</h2>
+                  <h2>
+                    Shop all our deliciousness <Link to="/">here!</Link>
+                  </h2>
+
+                  <iframe
+                    src={require("../../../assets/emptycart.gif")}
+                    width={900}
+                    height={1000}
+                    frameBorder="0"
+                  ></iframe>
+                </Swing>
               </div>
             )}
           </div>
