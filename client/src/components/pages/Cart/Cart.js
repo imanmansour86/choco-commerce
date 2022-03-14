@@ -41,6 +41,7 @@ const Cart = () => {
 
     const address = JSON.stringify(data.data.success.billing_details.address);
 
+    console.log("current items in cart", cartItems);
     console.log("user from local storage", user);
 
     fetch("http://localhost:3001/api/orders", {
@@ -49,15 +50,18 @@ const Cart = () => {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log("final", result);
-        },
-        (error) => {
-          console.error(error);
-        }
+      .then((result) =>
+        fetch("http://localhost:3001/api/order-details", {
+          method: "POST",
+          body: JSON.stringify({
+            cartItems: JSON.stringify(cartItems),
+            order_id: result.id,
+          }),
+          headers: { "Content-Type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then((result) => console.log("second result", result))
       );
-
     setReturnedWithSuccess(data);
   };
   const onFailure = (data) => {

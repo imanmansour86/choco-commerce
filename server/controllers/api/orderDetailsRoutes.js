@@ -1,15 +1,20 @@
 const router = require("express").Router();
 const { Order, OrderDetails, Product } = require("../../models");
 
-//create new orderDetail by userId
-
-router.post("/:orderId", async (req, res) => {
+//create new orderDetail by orderId
+router.post("/", async (req, res) => {
   try {
-    const newOrderDetail = await OrderDetails.create({
-      ...req.body,
-      order_id: req.params.orderId,
-    });
-    res.status(200).json(newOrderDetail);
+    const cartItems = JSON.parse(req.body.cartItems);
+
+    for (let item of cartItems) {
+      const newOrderDetail = await OrderDetails.create({
+        product_id: item.product.id,
+        quantity: item.purchaseQuantity,
+        order_id: req.body.order_id,
+      });
+    }
+
+    res.status(200);
   } catch (err) {
     res.status(500).json(err);
     console.error(err);
