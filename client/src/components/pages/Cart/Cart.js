@@ -71,16 +71,28 @@ const Cart = () => {
             setReturnedWithSuccess(data);
           })
       );
+    setTimeout(() => {
+      window.location.assign("/");
+    }, 3000);
   };
   const onFailure = (data) => {
     setReturnedWithFailure(data);
+  };
+
+  const getInfo = (returnedWithSuccess) => {
+    console.log("test");
+    console.log("returned with success", returnedWithSuccess);
   };
 
   return (
     <div className="container mt-5 mb-5">
       <div className="d-flex justify-content-center row">
         {returnedWithSuccess ? (
-          <div>{JSON.stringify(returnedWithSuccess)}</div>
+          <div>
+            <h1>Payment successful</h1>
+            <h2>Thank you for your purchase!</h2>
+            <h2>You will now be redirected to the home page</h2>
+          </div>
         ) : (
           <div className="cart-page col-md-8">
             <div className="p-2"></div>
