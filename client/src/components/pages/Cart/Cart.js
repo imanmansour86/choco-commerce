@@ -16,6 +16,7 @@ import Auth from "../../../utils/auth";
 //     <Cart {...props} />
 //   </Elements>
 // );
+import gif from "../../../assets/emptycart.gif";
 
 const Cart = () => {
   const [{ cartItems }, dispatch] = useStoreContext();
@@ -140,26 +141,45 @@ const Cart = () => {
               </div>
             ))}
 
-            <div className="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-              <div className="text-grey">Order Total: 20$</div>
-            </div>
-            <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-              <button
-                className="btn btn-warning btn-block btn-lg ml-2 "
-                type="button"
-              >
-                <CheckoutForm
-                  name={"LaRoche Chocolate"}
-                  description={"Current Balance"}
-                  amount={4.99}
-                  shippingAddress={"3375 Payne Drive"}
-                  onSuccess={onSuccess}
-                  onFailure={onFailure}
-                />
+            {cartItems.length > 0 ? (
+              <div>
+                <div className="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
+                  <div className="text-grey">Order Total: 20$</div>
+                </div>
+                <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
+                  <button
+                    className="btn btn-warning btn-block btn-lg ml-2 "
+                    type="button"
+                  >
+                    <CheckoutForm
+                      name={"LaRoche Chocolate"}
+                      description={"Current Balance"}
+                      amount={4.99}
+                      shippingAddress={"3375 Payne Drive"}
+                      onSuccess={onSuccess}
+                      onFailure={onFailure}
+                    />
 
-                {/* Proceed Checkout */}
-              </button>
-            </div>
+                    {/* Proceed Checkout */}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <h2>Your cart is empty</h2>
+                <h2>
+                  Shop all our Products <Link to="/">here!</Link>
+                </h2>
+                <iframe
+                  src={require("../../../assets/emptycart.gif")}
+                  width="480"
+                  height="270"
+                  frameBorder="0"
+                  class="giphy-embed"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            )}
           </div>
         )}
       </div>
