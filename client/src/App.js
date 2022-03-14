@@ -34,6 +34,10 @@ import { loadStripe } from "@stripe/stripe-js";
 //     </Elements>
 //   );
 // };
+import ReactGA from "react-ga";
+const TRACKING_ID = "G-ST37X3SNG0"; // YOUR_OWN_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
+
 function App() {
   return (
     <Router>
