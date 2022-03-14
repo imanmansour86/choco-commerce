@@ -44,7 +44,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/cart" element={<Cart />} />
-          <Route
+          {/* <Route
             path="/checkout"
             element={
               <CheckoutForm
@@ -54,7 +54,7 @@ function App() {
                 shippingAddress={"3375 Payne Drive"}
               />
             }
-          />
+          /> */}
           <Route path="/products/:id" element={<SingleProduct />} />
         </Routes>
       </StoreProvider>

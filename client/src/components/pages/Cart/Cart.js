@@ -3,7 +3,7 @@ import { useStoreContext } from "../../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../../utils/actions";
 import "./style.css";
 import { Elements } from "@stripe/react-stripe-js";
-
+import CheckoutForm from "../CheckoutForm";
 import { Link } from "react-router-dom";
 
 // const Wrapper = (props) => (
@@ -88,7 +88,14 @@ const Cart = () => {
               className="btn btn-warning btn-block btn-lg ml-2 pay-button"
               type="button"
             >
-              <Link to={`/checkout`}>Proceed Checkout</Link>
+              <CheckoutForm
+                name={"LaRoche Chocolate"}
+                description={"Current Balance"}
+                amount={4.99}
+                shippingAddress={"3375 Payne Drive"}
+              />
+
+              {/* Proceed Checkout */}
             </button>
           </div>
         </div>
