@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useStoreContext } from "../../../utils/GlobalState";
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../../utils/actions";
+import {
+  CLEAR_CART,
+  REMOVE_FROM_CART,
+  UPDATE_CART_QUANTITY,
+} from "../../../utils/actions";
 import "./style.css";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../CheckoutForm";
@@ -60,9 +64,13 @@ const Cart = () => {
           headers: { "Content-Type": "application/json" },
         })
           .then((res) => res.json())
-          .then((result) => console.log("second result", result))
+          .then(() => {
+            dispatch({
+              type: CLEAR_CART,
+            });
+            setReturnedWithSuccess(data);
+          })
       );
-    setReturnedWithSuccess(data);
   };
   const onFailure = (data) => {
     setReturnedWithFailure(data);
