@@ -19,7 +19,7 @@ const Home = () => {
 
   //fetch data from api as soon as component is loaded
   useEffect(() => {
-    fetch("http://localhost:3001/api/products")
+    fetch("https://peaceful-gorge-21480.herokuapp.com/api/products")
       .then((res) => res.json())
       .then(
         (result) => {

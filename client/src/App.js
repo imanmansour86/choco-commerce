@@ -19,6 +19,8 @@ import CheckoutForm from "./components/pages/CheckoutForm";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import RouteChangeTracker from "./components/RouteChangeTracker";
+
 // const stripePromise = loadStripe(
 //   "pk_test_51KbALaFc4X4KsU22jdX47Ta9QxT1GUQGJhzzsypQbExkjRSUDyf8c9F4CaEMj741evosIEXTzEr3lAO2Ib425vsb00DACZuj78"
 // );
@@ -35,7 +37,7 @@ import { loadStripe } from "@stripe/stripe-js";
 //   );
 // };
 import ReactGA from "react-ga";
-const TRACKING_ID = "G-ST37X3SNG0"; // YOUR_OWN_TRACKING_ID
+const TRACKING_ID = "G-ST37X3SNG0"; // YOUR_OWN_TRACKING_ID or store in env
 ReactGA.initialize(TRACKING_ID);
 
 function App() {
@@ -60,6 +62,7 @@ function App() {
             }
           /> */}
           <Route path="/products/:id" element={<SingleProduct />} />
+          {/* <RouteChangeTracker /> */}
         </Routes>
       </StoreProvider>
     </Router>
