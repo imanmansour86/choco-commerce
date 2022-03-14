@@ -1,5 +1,6 @@
 import React from "react";
 import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 
 const handleFormSubmit = async (event) => {
   event.preventDefault();
@@ -47,6 +48,11 @@ const Login = () => {
         <button className="sign" type="submit">
           Login
         </button>
+        <div>
+          <p>
+            <Link to={`/signup`}> Don't have an account? Signup here</Link>
+          </p>
+        </div>
       </form>
     </div>
   );
