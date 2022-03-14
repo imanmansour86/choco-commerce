@@ -5,6 +5,7 @@ import "./style.css";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../CheckoutForm";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 // const Wrapper = (props) => (
 //   <Elements stripe={stripePromise}>
@@ -35,6 +36,21 @@ const Cart = () => {
 
   const onSuccess = (data) => {
     //post api
+
+    const response = await fetch(`/api/orders`, {
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        description,
+        location,
+        activity_date,
+        image,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
     setReturnedWithSuccess(data);
   };
   const onFailure = (data) => {

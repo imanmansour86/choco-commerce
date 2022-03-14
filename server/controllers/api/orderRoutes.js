@@ -47,11 +47,10 @@ router.get("/:userId", async (req, res) => {
 });
 
 //create new order by userId
-router.post("/:userId", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newOrder = await Order.create({
       ...req.body,
-      user_id: req.params.userId,
     });
     res.status(200).json(newOrder);
   } catch (err) {
