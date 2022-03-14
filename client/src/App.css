@@ -154,6 +154,9 @@ button:hover {
   text-decoration: none;
 }
 
+.checkout {
+}
+
 @media only screen and (max-width: 850px) {
   .all-items {
     justify-content: center;

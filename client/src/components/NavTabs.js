@@ -53,7 +53,7 @@ const NavTabs = () => {
                 </li>
               ) : (
                 <li>
-                  <Link to={`/signup`}>
+                  <Link to={`/login`}>
                     <span className="glyphicon glyphicon-log-out"></span> Cart
                   </Link>
                 </li>
@@ -67,7 +67,7 @@ const NavTabs = () => {
                 </li>
               ) : (
                 <li>
-                  <Link to={`/signup`}>
+                  <Link to={`/login`}>
                     <span className="glyphicon glyphicon-log-out"></span> Login
                   </Link>
                 </li>
