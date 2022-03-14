@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//post a new user-login
+//post a new user-signup
 router.post("/", async (req, res, next) => {
   try {
     const salt = await bcrypt.genSalt(10);
@@ -27,10 +27,53 @@ router.post("/", async (req, res, next) => {
       { id: user.id, email: user.email, name: user.name },
       process.env.SECRET
     );
-    res.status(201).json({ created_user, token: token });
+    res.status(201).json({
+      user: {
+        id: created_user.id,
+        name: created_user.name,
+        email: created_user.email,
+      },
+      token: token,
+    });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({ where: { email: req.body.email } });
+
+    if (!user) {
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again" });
+      return;
+    }
+
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again" });
+      return;
+    }
+
+    token = jwt.sign(
+      { id: user.id, email: user.email, name: user.name },
+      process.env.SECRET
+    );
+    res.status(200).json({
+      user: { id: user.id, name: user.name, email: user.email },
+      token,
+    });
+  } catch (err) {
+    res.status(400).json(err);
+    console.error(err);
+  }
+});
 module.exports = router;

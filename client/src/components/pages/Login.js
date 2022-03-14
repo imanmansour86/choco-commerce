@@ -17,7 +17,7 @@ const handleFormSubmit = async (event) => {
       .then((res) => res.json())
       .then(
         (result) => {
-          Auth.login(result.token);
+          Auth.login(result.token, result.user);
         },
         (error) => {
           console.error(error);
