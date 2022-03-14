@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
 import { ADD_TO_CART } from "../utils/actions";
+import Fade from "react-reveal/Fade";
 
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -42,27 +43,30 @@ const SingleProduct = () => {
     return (
       <div className="singleproductContainer">
         <div className="single-item">
-          <div key={product.id} className="singlecard">
-            <img
-              className="card-img-top"
-              src="https://media.istockphoto.com/photos/chocolate-assortment-background-top-view-of-different-kinds-of-picture-id1276645382?b=1&k=20&m=1276645382&s=170667a&w=0&h=ba4ZvgTsuvpIqTzAlYLXVqbcpxVeoKh2cKOUgYoaJN8="
-              alt="Card image cap"
-            />
-            <div className="card-body">
-              <h5 className="card-title">{product.name}</h5>
+          <Fade>
+            <div key={product.id} className="singlecard">
+              <img
+                className="card-img-top"
+                src="https://media.istockphoto.com/photos/chocolate-assortment-background-top-view-of-different-kinds-of-picture-id1276645382?b=1&k=20&m=1276645382&s=170667a&w=0&h=ba4ZvgTsuvpIqTzAlYLXVqbcpxVeoKh2cKOUgYoaJN8="
+                alt="Card image cap"
+              />
+              <div className="card-body">
+                <h5 className="card-title">{product.name}</h5>
 
-              <p className="card-text">
-                Price: <em>$449</em>
-              </p>
-              <a
-                onClick={() => addToCart(product)}
-                href="#"
-                className="add-cart single-add-cart btn btn-primary"
-              >
-                ADD TO CART
-              </a>
+                <p className="card-text">
+                  Price: <em>$449</em>
+                </p>
+
+                <a
+                  onClick={() => addToCart(product)}
+                  href="#"
+                  className="add-cart single-add-cart btn btn-primary"
+                >
+                  ADD TO CART
+                </a>
+              </div>
             </div>
-          </div>
+          </Fade>
         </div>
         <div>
           <p>
