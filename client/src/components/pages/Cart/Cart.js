@@ -85,7 +85,7 @@ const Cart = () => {
           </div>
           <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
             <button
-              className="btn btn-warning btn-block btn-lg ml-2 pay-button"
+              className="btn btn-warning btn-block btn-lg ml-2 "
               type="button"
             >
               <CheckoutForm

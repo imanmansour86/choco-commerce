@@ -49,7 +49,9 @@ const CheckoutForm = ({ name, description, amount, shippingAddress }) => (
     email
     allowRememberMe
     shippingAddress
-  />
+  >
+    <button className="btn btn-primary">Proceed to Checkout</button>
+  </StripeCheckout>
 );
 
 export default CheckoutForm;
