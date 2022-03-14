@@ -166,17 +166,15 @@ const Cart = () => {
               </div>
             ) : (
               <div>
-                <h2>Your cart is empty</h2>
+                <h2>Your shopping cart is empty</h2>
                 <h2>
-                  Shop all our Products <Link to="/">here!</Link>
+                  Shop all our deliciousness <Link to="/">here!</Link>
                 </h2>
                 <iframe
                   src={require("../../../assets/emptycart.gif")}
-                  width="480"
-                  height="270"
+                  width={900}
+                  height={1000}
                   frameBorder="0"
-                  class="giphy-embed"
-                  allowFullScreen
                 ></iframe>
               </div>
             )}
