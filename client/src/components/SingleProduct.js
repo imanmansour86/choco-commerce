@@ -4,6 +4,7 @@ import { useStoreContext } from "../utils/GlobalState";
 import { ADD_TO_CART } from "../utils/actions";
 import Fade from "react-reveal/Fade";
 import "../assets/nougat.jpeg";
+require.context("../assets", false, /\.(png|jpe?g|svg)$/);
 
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
