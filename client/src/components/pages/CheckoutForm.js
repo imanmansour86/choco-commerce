@@ -35,7 +35,7 @@ const onToken = (amount, description) => (token) =>
     .then(successPayment)
     .catch(errorPayment);
 
-const CheckoutForm = ({ name, description, amount }) => (
+const CheckoutForm = ({ name, description, amount, shippingAddress }) => (
   <StripeCheckout
     name={name}
     description={description}
@@ -48,6 +48,7 @@ const CheckoutForm = ({ name, description, amount }) => (
     zipCode
     email
     allowRememberMe
+    shippingAddress
   />
 );
 

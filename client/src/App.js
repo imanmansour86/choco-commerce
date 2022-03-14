@@ -48,8 +48,9 @@ function App() {
             element={
               <CheckoutForm
                 name={"LaRoche Chocolate"}
-                description={"Item that you sold"}
+                description={"Current Balance"}
                 amount={4.99}
+                shippingAddress={"3375 Payne Drive"}
               />
             }
           />
