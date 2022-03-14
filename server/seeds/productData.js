@@ -2,88 +2,109 @@ const { Product } = require("../models");
 
 const productData = [
   {
-    name: "Milk Strawberry Cream",
-    description: "Chocolate with strawberry cream filling",
-    price: 20,
+    name: "Milk Nougat",
+    description:
+      "Brown sugar nougat with roasted, unsalted peanuts in smooth milk chocolate",
+    price: 10,
   },
 
   {
-    name: "Milk Vanilla Buttercream",
-    description: "Chocolate filled with buttercream",
+    name: "Dark Vanilla Buttercream",
+    description:
+      "Buttery, creamy soft center with a touch of vanilla, enrobed in rich dark chocolate",
     price: 30,
   },
 
   {
-    name: "Milk caramel",
-    description: "Chocolate filled with caramels",
+    name: "Dark caramel",
+    description:
+      "Chocolate butter caramel and creamy vanilla caramel coated in smooth dark chocolate",
     price: 40,
   },
   {
-    name: "Milk Strawberry Cream",
-    description: "Chocolate with strawberry cream filling",
+    name: "Milk caramel",
+    description:
+      "Chocolate butter caramel and creamy vanilla caramel coated in smooth milk chocolate",
     price: 20,
   },
 
   {
-    name: "Milk Vanilla Buttercream",
-    description: "Chocolate filled with buttercream",
+    name: "Raspberry Truffle",
+    description:
+      "Truffle center of dark chocolate, cream and raspberries covered in rich dark chocolate",
     price: 30,
   },
 
   {
-    name: "Milk caramel",
-    description: "Chocolate filled with caramels",
+    name: "Milk Coconut Cream",
+    description:
+      "Creamy soft center with angel flake coconut covered in smooth milk chocolate",
     price: 40,
   },
   {
-    name: "Milk Strawberry Cream",
-    description: "Chocolate with strawberry cream filling",
+    name: "Dark Chocolate Truffle",
+    description:
+      "Rich, creamy truffle center of semi-sweet chocolate and chocolate chips covered in rich dark chocolate",
     price: 20,
   },
 
   {
-    name: "Milk Vanilla Buttercream",
-    description: "Chocolate filled with buttercream",
+    name: "Milk Almond Toffee",
+    description:
+      " Chopped almonds with crunchy toffee smothered in our signature milk chocolate",
     price: 30,
   },
 
   {
-    name: "Milk caramel",
-    description: "Chocolate filled with caramels",
+    name: "Milk Walnut Square",
+    description:
+      "Walnuts combined with buttery caramel and dipped halfway in rich dark chocolate",
     price: 40,
   },
   {
-    name: "Milk Strawberry Cream",
-    description: "Chocolate with strawberry cream filling",
+    name: "Milk Caramel Almond",
+    description:
+      "Buttery brown sugar caramel with a touch of maple sugar and almonds enrobed in smooth milk chocolate",
     price: 20,
   },
 
   {
     name: "Milk Vanilla Buttercream",
-    description: "Chocolate filled with buttercream",
+    description:
+      "Buttery, creamy soft center with a touch of vanilla, covered in smooth milk chocolate.",
     price: 30,
   },
 
   {
-    name: "Milk caramel",
-    description: "Chocolate filled with caramels",
+    name: "Dark caramel",
+    description:
+      "Chocolate butter caramel and creamy vanilla caramel coated in smooth dark chocolate",
     price: 40,
   },
   {
-    name: "Milk Strawberry Cream",
-    description: "Chocolate with strawberry cream filling",
+    name: "Dark Peanut Brittle",
+    description:
+      "Buttery peanut brittle wrapped in rich, creamy dark chocolate",
     price: 20,
   },
 
   {
-    name: "Milk Vanilla Buttercream",
-    description: "Chocolate filled with buttercream",
+    name: "Lemon Truffle",
+    description:
+      "Smooth truffle center of white chocolate and lemon covered in dark chocolate",
     price: 30,
   },
 
   {
-    name: "Milk caramel",
-    description: "Chocolate filled with caramels",
+    name: "Apple Pie Truffle",
+    description:
+      "Creamy truffle center of white chocolate, Granny Smith Apples and a touch of cinnamon covered in white chocolat",
+    price: 40,
+  },
+  {
+    name: "Dark Marzipan",
+    description:
+      "Almond paste with honey and powdered sugar covered in rich dark chocolate.",
     price: 40,
   },
 ];
