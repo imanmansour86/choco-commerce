@@ -153,7 +153,7 @@ const Cart = () => {
               <div>
                 <div className="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
                   <div className="text-grey">
-                    Order Total: $test{calculateTotal()}
+                    Order Total: <strong>${calculateTotal()}</strong>
                   </div>
                 </div>
                 <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
@@ -164,7 +164,7 @@ const Cart = () => {
                     <CheckoutForm
                       name={"LaRoche Chocolate"}
                       description={"Current Balance"}
-                      amount={4.99}
+                      amount={calculateTotal()}
                       shippingAddress={"3375 Payne Drive"}
                       onSuccess={onSuccess}
                       onFailure={onFailure}
