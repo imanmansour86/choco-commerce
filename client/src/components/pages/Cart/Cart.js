@@ -5,7 +5,7 @@ import "./style.css";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../CheckoutForm";
 import { Link } from "react-router-dom";
-import Auth from "../utils/auth";
+import Auth from "../../../utils/auth";
 
 // const Wrapper = (props) => (
 //   <Elements stripe={stripePromise}>
@@ -37,19 +37,26 @@ const Cart = () => {
   const onSuccess = (data) => {
     //post api
 
-    const response = await fetch(`/api/orders`, {
+    const user = Auth.getUser();
+
+    const address = JSON.stringify(data.data.success.billing_details.address);
+
+    console.log("user from local storage", user);
+
+    fetch("http://localhost:3001/api/orders", {
       method: "POST",
-      body: JSON.stringify({
-        title,
-        description,
-        location,
-        activity_date,
-        image,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+      body: JSON.stringify({ address, user_id: user.id }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log("final", result);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
 
     setReturnedWithSuccess(data);
   };

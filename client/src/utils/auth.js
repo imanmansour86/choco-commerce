@@ -29,13 +29,13 @@ class AuthService {
 
   getUser() {
     // Retrieves the user token from localStorage
-    return localStorage.getItem("user");
+    return JSON.parse(localStorage.getItem("user"));
   }
 
   login(idToken, user) {
     // Saves user token to localStorage
     localStorage.setItem("id_token", idToken);
-    localStorage.setItem("user", user);
+    localStorage.setItem("user", JSON.stringify(user));
 
     window.location.assign("/");
   }

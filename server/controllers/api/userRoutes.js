@@ -27,7 +27,14 @@ router.post("/", async (req, res, next) => {
       { id: user.id, email: user.email, name: user.name },
       process.env.SECRET
     );
-    res.status(201).json({ user: created_user, token: token });
+    res.status(201).json({
+      user: {
+        id: created_user.id,
+        name: created_user.name,
+        email: created_user.email,
+      },
+      token: token,
+    });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -60,7 +67,10 @@ router.post("/login", async (req, res) => {
       { id: user.id, email: user.email, name: user.name },
       process.env.SECRET
     );
-    res.status(200).json({ user, token });
+    res.status(200).json({
+      user: { id: user.id, name: user.name, email: user.email },
+      token,
+    });
   } catch (err) {
     res.status(400).json(err);
     console.error(err);
