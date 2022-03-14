@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
 import { ADD_TO_CART } from "../utils/actions";
 import Fade from "react-reveal/Fade";
+import "../assets/nougat.jpeg";
+require.context("../assets", false, /\.(png|jpe?g|svg)$/);
 
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -45,16 +47,12 @@ const SingleProduct = () => {
         <div className="single-item">
           <Fade>
             <div key={product.id} className="singlecard">
-              <img
-                className="card-img-top"
-                src="https://media.istockphoto.com/photos/chocolate-assortment-background-top-view-of-different-kinds-of-picture-id1276645382?b=1&k=20&m=1276645382&s=170667a&w=0&h=ba4ZvgTsuvpIqTzAlYLXVqbcpxVeoKh2cKOUgYoaJN8="
-                alt="Card image cap"
-              />
+              <img src={require(`../assets/${product.image}`)} />
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
 
                 <p className="card-text">
-                  Price: <em>$449</em>
+                  Price: <em>${product.price}</em>
                 </p>
 
                 <a
@@ -69,11 +67,7 @@ const SingleProduct = () => {
           </Fade>
         </div>
         <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-            {product.description}
-          </p>
+          <p> {product.description}</p>
         </div>
       </div>
     );

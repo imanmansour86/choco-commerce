@@ -82,10 +82,14 @@ const Cart = () => {
     setReturnedWithFailure(data);
   };
 
-  const getInfo = (returnedWithSuccess) => {
-    console.log("test");
-    console.log("returned with success", returnedWithSuccess);
-  };
+  function calculateTotal() {
+    let sum = 0;
+    cartItems.forEach((item) => {
+      sum += item.product.price * item.purchaseQuantity;
+      console.log("sum", sum);
+    });
+    return sum.toFixed(2);
+  }
 
   return (
     <div className="container mt-5 mb-5">
@@ -133,7 +137,7 @@ const Cart = () => {
                 <i className="fa fa-plus text-success"></i> */}
                   </div>
                   <div>
-                    <h5 className="text-blue">{item.product.price}</h5>
+                    <h5 className="text-blue">${item.product.price}</h5>
                   </div>
                   <div className="d-flex align-items-center">
                     <i
@@ -148,7 +152,9 @@ const Cart = () => {
             {cartItems.length > 0 ? (
               <div>
                 <div className="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-                  <div className="text-grey">Order Total: 20$</div>
+                  <div className="text-grey">
+                    Order Total: <strong>${calculateTotal()}</strong>
+                  </div>
                 </div>
                 <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
                   <button
@@ -158,7 +164,7 @@ const Cart = () => {
                     <CheckoutForm
                       name={"LaRoche Chocolate"}
                       description={"Current Balance"}
-                      amount={4.99}
+                      amount={calculateTotal()}
                       shippingAddress={"3375 Payne Drive"}
                       onSuccess={onSuccess}
                       onFailure={onFailure}
