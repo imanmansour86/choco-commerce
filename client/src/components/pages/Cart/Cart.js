@@ -16,6 +16,7 @@ import Auth from "../../../utils/auth";
 //     <Cart {...props} />
 //   </Elements>
 // );
+import gif from "../../../assets/emptycart.gif";
 
 const Cart = () => {
   const [{ cartItems }, dispatch] = useStoreContext();
@@ -71,16 +72,28 @@ const Cart = () => {
             setReturnedWithSuccess(data);
           })
       );
+    setTimeout(() => {
+      window.location.assign("/");
+    }, 3000);
   };
   const onFailure = (data) => {
     setReturnedWithFailure(data);
+  };
+
+  const getInfo = (returnedWithSuccess) => {
+    console.log("test");
+    console.log("returned with success", returnedWithSuccess);
   };
 
   return (
     <div className="container mt-5 mb-5">
       <div className="d-flex justify-content-center row">
         {returnedWithSuccess ? (
-          <div>{JSON.stringify(returnedWithSuccess)}</div>
+          <div>
+            <h1>Payment successful</h1>
+            <h2>Thank you for your purchase!</h2>
+            <h2>You will now be redirected to the home page</h2>
+          </div>
         ) : (
           <div className="cart-page col-md-8">
             <div className="p-2"></div>
@@ -128,26 +141,43 @@ const Cart = () => {
               </div>
             ))}
 
-            <div className="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-              <div className="text-grey">Order Total: 20$</div>
-            </div>
-            <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-              <button
-                className="btn btn-warning btn-block btn-lg ml-2 "
-                type="button"
-              >
-                <CheckoutForm
-                  name={"LaRoche Chocolate"}
-                  description={"Current Balance"}
-                  amount={4.99}
-                  shippingAddress={"3375 Payne Drive"}
-                  onSuccess={onSuccess}
-                  onFailure={onFailure}
-                />
+            {cartItems.length > 0 ? (
+              <div>
+                <div className="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
+                  <div className="text-grey">Order Total: 20$</div>
+                </div>
+                <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
+                  <button
+                    className="btn btn-warning btn-block btn-lg ml-2 "
+                    type="button"
+                  >
+                    <CheckoutForm
+                      name={"LaRoche Chocolate"}
+                      description={"Current Balance"}
+                      amount={4.99}
+                      shippingAddress={"3375 Payne Drive"}
+                      onSuccess={onSuccess}
+                      onFailure={onFailure}
+                    />
 
-                {/* Proceed Checkout */}
-              </button>
-            </div>
+                    {/* Proceed Checkout */}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <h2>Your shopping cart is empty</h2>
+                <h2>
+                  Shop all our deliciousness <Link to="/">here!</Link>
+                </h2>
+                <iframe
+                  src={require("../../../assets/emptycart.gif")}
+                  width={900}
+                  height={1000}
+                  frameBorder="0"
+                ></iframe>
+              </div>
+            )}
           </div>
         )}
       </div>
