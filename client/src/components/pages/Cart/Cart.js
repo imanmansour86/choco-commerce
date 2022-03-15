@@ -114,8 +114,8 @@ const Cart = () => {
                   <div className="mr-1">
                     <img
                       className="rounded"
-                      src="https://i.imgur.com/XiFJkhI.jpg"
                       width="70"
+                      src={`/assets/${item.product.image}`}
                     />
                   </div>
                   <div className="d-flex flex-column align-items-center ">
