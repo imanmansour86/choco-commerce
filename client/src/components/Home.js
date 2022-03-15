@@ -17,13 +17,6 @@ const Home = () => {
     });
   };
 
-  const initializeCart = () => {
-    dispatch({
-      type: INITIALIZE,
-      cartItem: localStorage.getItem("cart_items"),
-    });
-  };
-
   //fetch data from api as soon as component is loaded
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BASE_URL}api/products`)
@@ -39,6 +32,12 @@ const Home = () => {
           console.error(error);
         }
       );
+  }, []);
+
+  useEffect(() => {
+    dispatch({
+      type: INITIALIZE,
+    });
   }, []);
 
   if (error) {

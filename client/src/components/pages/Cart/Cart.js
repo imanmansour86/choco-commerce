@@ -4,18 +4,13 @@ import {
   CLEAR_CART,
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
+  INITIALIZE,
 } from "../../../utils/actions";
 import "./style.css";
-import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../CheckoutForm";
 import { Link } from "react-router-dom";
 import Auth from "../../../utils/auth";
 import LightSpeed from "react-reveal/LightSpeed";
-// const Wrapper = (props) => (
-//   <Elements stripe={stripePromise}>
-//     <Cart {...props} />
-//   </Elements>
-// );
 
 import Spin from "react-reveal/Spin";
 import Swing from "react-reveal/Swing";
@@ -24,6 +19,12 @@ const Cart = () => {
   const [{ cartItems }, dispatch] = useStoreContext();
   const [returnedWithSuccess, setReturnedWithSuccess] = useState();
   const [returnedWithFailure, setReturnedWithFailure] = useState();
+
+  useEffect(() => {
+    dispatch({
+      type: INITIALIZE,
+    });
+  }, []);
 
   const removeFromCart = (product) => {
     console.log("btn clicked", product);
