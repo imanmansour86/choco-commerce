@@ -25,8 +25,8 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products/:id" element={<SingleProduct />} />
-          <RouteChangeTracker />
         </Routes>
+        <RouteChangeTracker />
       </StoreProvider>
     </Router>
   );
