@@ -75,9 +75,9 @@ const Cart = () => {
             setReturnedWithSuccess(data);
           })
       );
-    setTimeout(() => {
-      window.location.assign("/");
-    }, 3000);
+    // setTimeout(() => {
+    //   window.location.assign("/");
+    // }, 3000);
   };
   const onFailure = (data) => {
     setReturnedWithFailure(data);
@@ -96,10 +96,28 @@ const Cart = () => {
     <div className="container mt-5 mb-5">
       <div className="d-flex justify-content-center row">
         {returnedWithSuccess ? (
-          <div>
+          <div className="success">
             <h1>Payment successful</h1>
-            <h2>Thank you for your purchase!</h2>
-            <h2>You will now be redirected to the home page</h2>
+            <h2>
+              {returnedWithSuccess.data.success.billing_details.name}, thank you
+              for your purchase!
+            </h2>
+            <h3 className="track">
+              Your order tracking ID is: {returnedWithSuccess.data.success.id}{" "}
+            </h3>
+            <h3 className="track">
+              Order shipped to :{" "}
+              {returnedWithSuccess.data.success.billing_details.address.line1}
+              {", "}{" "}
+              {returnedWithSuccess.data.success.billing_details.address.city}{" "}
+              {
+                returnedWithSuccess.data.success.billing_details.address
+                  .postal_code
+              }
+            </h3>
+            <Link className="add-cart single-add-cart btn btn-primar" to={`/`}>
+              Continue Shopping
+            </Link>
           </div>
         ) : (
           <div className="cart-page col-md-8">

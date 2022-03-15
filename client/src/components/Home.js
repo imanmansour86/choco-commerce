@@ -69,7 +69,6 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <div>{JSON.stringify(state)}</div>
       </div>
     );
   }

@@ -145,9 +145,17 @@ h2 {
 .card-img-top {
   width: 30vw;
 }
-/* button:hover {
-  background: #55d3ac;
-} */
+
+.track {
+  color: #8c5e58;
+}
+
+.success {
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .form-body {
   display: flex;
   flex-direction: column;
