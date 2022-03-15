@@ -51,14 +51,14 @@ const Cart = () => {
     console.log("current items in cart", cartItems);
     console.log("user from local storage", user);
 
-    fetch("http://localhost:3001/api/orders", {
+    fetch(`${process.env.REACT_APP_BASE_URL}api/orders`, {
       method: "POST",
       body: JSON.stringify({ address, user_id: user.id }),
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((result) =>
-        fetch("http://localhost:3001/api/order-details", {
+        fetch(`${process.env.REACT_APP_BASE_URL}api/order-details`, {
           method: "POST",
           body: JSON.stringify({
             cartItems: JSON.stringify(cartItems),

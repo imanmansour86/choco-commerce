@@ -20,7 +20,7 @@ const SingleProduct = () => {
   const { id } = useParams();
   //fetch data from api as soon as component is loaded
   useEffect(() => {
-    fetch(`http://localhost:3001/api/products/${id}`)
+    fetch(`${process.env.REACT_APP_BASE_URL}api/products/${id}`)
       .then((res) => res.json())
       .then(
         (result) => {

@@ -11,7 +11,7 @@ const Login = () => {
     const password = document.getElementById("signupPassword").value.trim();
 
     if (email && password) {
-      fetch("http://localhost:3001/api/users/login", {
+      fetch(`${process.env.REACT_APP_BASE_URL}api/users/login`, {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
