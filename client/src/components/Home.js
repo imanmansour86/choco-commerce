@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ADD_TO_CART } from "../utils/actions";
+import { ADD_TO_CART, INITIALIZE } from "../utils/actions";
 import { useStoreContext } from "../utils/GlobalState";
-import "../assets/nougat.jpeg";
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -14,6 +14,13 @@ const Home = () => {
     dispatch({
       type: ADD_TO_CART,
       cartItem: { product, purchaseQuantity: 1 },
+    });
+  };
+
+  const initializeCart = () => {
+    dispatch({
+      type: INITIALIZE,
+      cartItem: localStorage.getItem("cart_items"),
     });
   };
 
@@ -44,7 +51,7 @@ const Home = () => {
         <div className="all-items">
           {products.map((product) => (
             <div key={product.id} className="card">
-              <img src={require(`../assets/${product.image}`)} />
+              <img src={`/assets/${product.image}`} />
               <div className="card-body">
                 <Link to={`/products/${product.id}`}>
                   <h5 className="card-title">{product.name}</h5>

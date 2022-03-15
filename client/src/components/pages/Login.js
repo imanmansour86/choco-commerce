@@ -1,32 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
-const handleFormSubmit = async (event) => {
-  event.preventDefault();
-
-  const email = document.getElementById("signupEmail").value.trim();
-  const password = document.getElementById("signupPassword").value.trim();
-
-  if (email && password) {
-    fetch("http://localhost:3001/api/users/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          Auth.login(result.token, result.user);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-  }
-};
-
 const Login = () => {
+  const [error, setError] = useState();
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("signupEmail").value.trim();
+    const password = document.getElementById("signupPassword").value.trim();
+
+    if (email && password) {
+      fetch("http://localhost:3001/api/users/login", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => {
+          if (res.ok) return res.json();
+          setError("Invalid username or password");
+        })
+        .then((result) => {
+          console.log("result", result);
+          Auth.login(result.token, result.user);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
+
   return (
     <div className="form-body">
       <h1>Login</h1>
@@ -54,6 +57,7 @@ const Login = () => {
           </p>
         </div>
       </form>
+      {error && <div>{error}</div>}
     </div>
   );
 };

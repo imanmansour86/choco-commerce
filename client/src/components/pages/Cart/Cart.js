@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStoreContext } from "../../../utils/GlobalState";
 import {
   CLEAR_CART,
@@ -16,7 +16,7 @@ import LightSpeed from "react-reveal/LightSpeed";
 //     <Cart {...props} />
 //   </Elements>
 // );
-import gif from "../../../assets/emptycart.gif";
+
 import Spin from "react-reveal/Spin";
 import Swing from "react-reveal/Swing";
 
@@ -42,7 +42,7 @@ const Cart = () => {
   };
 
   const onSuccess = (data) => {
-    //post api
+    //post to api
 
     const user = Auth.getUser();
 
@@ -158,7 +158,7 @@ const Cart = () => {
                 </div>
                 <div className="checkbtn d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
                   <button
-                    className="btn btn-warning btn-block btn-lg ml-2 "
+                    className="btn pay btn-warning btn-block btn-lg ml-2 "
                     type="button"
                   >
                     <CheckoutForm
@@ -183,7 +183,7 @@ const Cart = () => {
                   </h2>
 
                   <iframe
-                    src={require("../../../assets/emptycart.gif")}
+                    src={"/assets/emptycart.gif"}
                     width={900}
                     height={1000}
                     frameBorder="0"

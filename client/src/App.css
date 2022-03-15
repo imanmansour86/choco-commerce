@@ -142,10 +142,12 @@ h2 {
   margin-top: 15px;
   transition: background 0.2s ease-out;
 }
-
-button:hover {
-  background: #55d3ac;
+.card-img-top {
+  width: 60%;
 }
+/* button:hover {
+  background: #55d3ac;
+} */
 .form-body {
   display: flex;
   flex-direction: column;
@@ -156,7 +158,8 @@ button:hover {
   text-decoration: none;
 }
 
-.checkout {
+.nav:hover {
+  color: black !important;
 }
 
 @media only screen and (max-width: 850px) {

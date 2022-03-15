@@ -21,26 +21,12 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import RouteChangeTracker from "./components/RouteChangeTracker";
 
-// const stripePromise = loadStripe(
-//   "pk_test_51KbALaFc4X4KsU22jdX47Ta9QxT1GUQGJhzzsypQbExkjRSUDyf8c9F4CaEMj741evosIEXTzEr3lAO2Ib425vsb00DACZuj78"
-// );
-
-// const WrappedCheckoutForm = () => {
-//   const options = {
-//     // passing the client secret obtained from the server
-//     clientSecret: `sk_test_51KbALaFc4X4KsU222Lb1jwB475VSo6O8ntIarZCycJMa39T2WdksUTezDEBAG28gj02JjcHHjbH1FD2xgBMMrFPk00LLJ3fRYI`,
-//   };
-//   return (
-//     <Elements stripe={stripePromise} options={options}>
-//       <CheckoutForm />
-//     </Elements>
-//   );
-// };
 import ReactGA from "react-ga";
+import { INITIALIZE } from "./utils/actions";
 const TRACKING_ID = "G-ST37X3SNG0"; // YOUR_OWN_TRACKING_ID or store in env
 ReactGA.initialize(TRACKING_ID);
 
-function App() {
+const App = () => {
   return (
     <Router>
       <StoreProvider>
@@ -67,6 +53,6 @@ function App() {
       </StoreProvider>
     </Router>
   );
-}
+};
 
 export default App;

@@ -24,7 +24,7 @@ const NavTabs = () => {
           </div>
 
           <div className="collapse navbar-collapse" id="myNavbar">
-            <form className="navbar-form navbar-left">
+            {/* <form className="navbar-form navbar-left">
               <div className="form-group">
                 <input
                   type="text"
@@ -35,7 +35,7 @@ const NavTabs = () => {
               <button type="submit" className="btn btn-default">
                 <span className="glyphicon glyphicon-search"></span>
               </button>
-            </form>
+            </form> */}
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <Link to={`/`}>

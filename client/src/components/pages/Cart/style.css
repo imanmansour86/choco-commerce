@@ -18,19 +18,6 @@
   box-shadow: none;
 }
 
-/* .pay-button {
-  color: #fff;
-}
-
-.pay-button:hover {
-  color: #fff;
-}
-
-.pay-button:focus {
-  color: #fff;
-  box-shadow: none;
-} */
-
 .text-blue {
   color: #19323c;
 }
@@ -59,3 +46,20 @@
 .cart-page {
   gap: 20px;
 }
+
+.pay {
+  background-color: #f3f7f0;
+  border: none;
+}
+
+.pay:hover {
+  background-color: #f3f7f0;
+}
+/* 
+.pay:focus {
+  background-color: #f3f7f0;
+}
+
+.pay:active {
+  background-color: #f3f7f0;
+} */

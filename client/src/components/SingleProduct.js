@@ -3,8 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
 import { ADD_TO_CART } from "../utils/actions";
 import Fade from "react-reveal/Fade";
-import "../assets/nougat.jpeg";
-require.context("../assets", false, /\.(png|jpe?g|svg)$/);
 
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -47,7 +45,8 @@ const SingleProduct = () => {
         <div className="single-item">
           <Fade>
             <div key={product.id} className="singlecard">
-              <img src={require(`../assets/${product.image}`)} />
+              <img className="card-img-top" src={`/assets/${product.image}`} />
+
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
 
