@@ -59,7 +59,7 @@ const SignUp = () => {
           <input type="password" id="signupPassword" name="password" />
         </div>
         <button className="sign" type="submit">
-          Login
+          SignUp
         </button>
       </form>
     </div>

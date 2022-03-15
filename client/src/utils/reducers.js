@@ -37,7 +37,7 @@ export const reducer = (state, action) => {
       };
 
     case INITIALIZE:
-      const currentItems = localStorage.getItem("cart_items");
+      const currentItems = localStorage.getItem("cart_items") || "[]";
       return {
         ...state,
         cartItems: JSON.parse(currentItems),
