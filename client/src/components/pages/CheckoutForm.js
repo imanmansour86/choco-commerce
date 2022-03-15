@@ -1,14 +1,8 @@
-import {
-  useStripe,
-  useElements,
-  PaymentElement,
-} from "@stripe/react-stripe-js";
 import React from "react";
 import axios from "axios";
 
 import StripeCheckout from "react-stripe-checkout";
 
-import STRIPE_PUBLISHABLE from "../../utils/stripe";
 import PAYMENT_SERVER_URL from "../../utils/server";
 
 const CURRENCY = "USD";
