@@ -26,7 +26,7 @@ const Home = () => {
 
   //fetch data from api as soon as component is loaded
   useEffect(() => {
-    fetch("http://localhost:3001/api/products")
+    fetch(`${process.env.REACT_APP_BASE_URL}api/products`)
       .then((res) => res.json())
       .then(
         (result) => {
