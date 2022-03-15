@@ -42,29 +42,28 @@ const SingleProduct = () => {
   } else {
     return (
       <div className="singleproductContainer">
-        <div className="single-item">
-          <Fade>
-            <div key={product.id} className="singlecard">
-              <img className="card-img-top" src={`/assets/${product.image}`} />
+        <Fade>
+          <div key={product.id} className="singlecard">
+            <img className="card-img-top" src={`/assets/${product.image}`} />
 
-              <div className="card-body">
-                <h5 className="card-title">{product.name}</h5>
+            <div className="card-body">
+              <h5 className="card-title">{product.name}</h5>
 
-                <p className="card-text">
-                  Price: <em>${product.price}</em>
-                </p>
+              <p className="card-text">
+                Price: <em>${product.price}</em>
+              </p>
 
-                <a
-                  onClick={() => addToCart(product)}
-                  href="#"
-                  className="add-cart single-add-cart btn btn-primary"
-                >
-                  ADD TO CART
-                </a>
-              </div>
+              <a
+                onClick={() => addToCart(product)}
+                href="#"
+                className="add-cart single-add-cart btn btn-primary"
+              >
+                ADD TO CART
+              </a>
             </div>
-          </Fade>
-        </div>
+          </div>
+        </Fade>
+
         <div>
           <p> {product.description}</p>
         </div>

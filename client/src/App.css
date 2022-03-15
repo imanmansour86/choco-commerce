@@ -46,7 +46,7 @@ nav .navbar-header button .fa {
   gap: 10px 20px;
 }
 .singleproductContainer {
-  width: 70%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -143,7 +143,7 @@ h2 {
   transition: background 0.2s ease-out;
 }
 .card-img-top {
-  width: 60%;
+  width: 30vw;
 }
 /* button:hover {
   background: #55d3ac;
@@ -160,6 +160,9 @@ h2 {
 
 .nav:hover {
   color: black !important;
+}
+.product-name {
+  width: 100px;
 }
 
 @media only screen and (max-width: 850px) {

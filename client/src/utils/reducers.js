@@ -22,7 +22,7 @@ export const reducer = (state, action) => {
         }
         return product;
       });
-      localStorage.setItem("cart_items", JSON.stringify(newItems));
+      localStorage.setItem("cart_items", JSON.stringify(newItems || []));
       return {
         ...state,
         cartItems: newItems,
@@ -30,7 +30,7 @@ export const reducer = (state, action) => {
 
     case ADD_TO_CART:
       const newCartItems = [...state.cartItems, action.cartItem];
-      localStorage.setItem("cart_items", JSON.stringify(newCartItems));
+      localStorage.setItem("cart_items", JSON.stringify(newCartItems || []));
       return {
         ...state,
         cartItems: newCartItems,
@@ -44,17 +44,17 @@ export const reducer = (state, action) => {
       };
 
     case REMOVE_FROM_CART:
-      let newState = state.cartItems.filter((product) => {
-        console.log("the entire product to remove is", product.product.id);
+      let newStateCartItems = state.cartItems.filter((product) => {
         return product.product.id !== action.cartItem.id;
       });
 
-      console.log("action.cart item", action.cartItem.id);
-      console.log("new state after filter is an array", newState);
-      localStorage.setItem("cart_items", JSON.stringify(newState.cartItems));
+      localStorage.setItem(
+        "cart_items",
+        JSON.stringify(newStateCartItems || [])
+      );
       return {
         ...state,
-        cartItems: newState,
+        cartItems: newStateCartItems,
       };
 
     case CLEAR_CART:

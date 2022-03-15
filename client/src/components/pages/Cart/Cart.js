@@ -119,7 +119,7 @@ const Cart = () => {
                       src={`/assets/${item.product.image}`}
                     />
                   </div>
-                  <div className="d-flex flex-column align-items-center ">
+                  <div className="product-name d-flex flex-column align-items-center ">
                     <span className=" text-blue">{item.product.name}</span>
                   </div>
                   <div className="d-flex flex-row align-items-center qty">

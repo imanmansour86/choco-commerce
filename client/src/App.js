@@ -8,7 +8,7 @@ import NavTabs from "./components/NavTabs";
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/Signup";
 import Cart from "./components/pages/Cart/Cart";
-
+import RouteChangeTracker from "./components/RouteChangeTracker";
 import ReactGA from "react-ga";
 
 const TRACKING_ID = "G-ST37X3SNG0"; // YOUR_OWN_TRACKING_ID or store in env
@@ -36,7 +36,7 @@ const App = () => {
             }
           /> */}
           <Route path="/products/:id" element={<SingleProduct />} />
-          {/* <RouteChangeTracker /> */}
+          <RouteChangeTracker />
         </Routes>
       </StoreProvider>
     </Router>
