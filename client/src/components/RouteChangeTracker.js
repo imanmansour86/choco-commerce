@@ -6,7 +6,8 @@ const RouteChangeTracker = () => {
   let location = useLocation();
 
   React.useEffect(() => {
-    ReactGA("send", "pageview");
+    ReactGA.set({ page: location.pathname });
+    ReactGA.pageview(location.pathname);
   }, [location]);
 
   return <div></div>;

@@ -24,17 +24,6 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/cart" element={<Cart />} />
-          {/* <Route
-            path="/checkout"
-            element={
-              <CheckoutForm
-                name={"LaRoche Chocolate"}
-                description={"Current Balance"}
-                amount={4.99}
-                shippingAddress={"3375 Payne Drive"}
-              />
-            }
-          /> */}
           <Route path="/products/:id" element={<SingleProduct />} />
           <RouteChangeTracker />
         </Routes>
