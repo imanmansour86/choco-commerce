@@ -70,13 +70,13 @@ LaRoche Chocolate is an E-Commerce website that allows users to view different k
 
 ![Single](/client/public/assets/singleProduct.gif)
 
-- Update Cart
+- Update Quantity
 
 ![Update](/client/public/assets/update%20quantity.gif)
 
 - Empty Cart
 
-![Empty](/client/public/assets/emptycart.gif)
+![Empty](/client/public/assets/empty.gif)
 
 - Refresh Cart
 
