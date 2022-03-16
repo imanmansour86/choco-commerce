@@ -9,7 +9,6 @@ Order.belongsToMany(Product, {
   through: {
     model: OrderDetails,
   },
-  // Define an alias for when data is retrieved
 
   as: "order_product",
   foreignKey: "order_id",
@@ -19,13 +18,10 @@ Product.belongsToMany(Order, {
   through: {
     model: OrderDetails,
   },
-  // Define an alias for when data is retrieved
 
   as: "product_order",
   foreignKey: "product_id",
 });
-
-// User and Order has one to many relationship
 
 User.hasMany(Order, {
   foreignKey: "user_id",
