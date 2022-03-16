@@ -27,7 +27,6 @@ const Cart = () => {
   }, []);
 
   const removeFromCart = (product) => {
-    console.log("btn clicked", product);
     dispatch({
       type: REMOVE_FROM_CART,
       cartItem: product,
@@ -48,9 +47,6 @@ const Cart = () => {
     const user = Auth.getUser();
 
     const address = JSON.stringify(data.data.success.billing_details.address);
-
-    console.log("current items in cart", cartItems);
-    console.log("user from local storage", user);
 
     fetch(`${process.env.REACT_APP_BASE_URL}api/orders`, {
       method: "POST",
@@ -84,7 +80,6 @@ const Cart = () => {
     let sum = 0;
     cartItems.forEach((item) => {
       sum += item.product.price * item.purchaseQuantity;
-      console.log("sum", sum);
     });
     return sum.toFixed(2);
   }
