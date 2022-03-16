@@ -148,9 +148,6 @@ const Cart = () => {
                       value={item.purchaseQuantity}
                       onChange={(e) => onChange(e.target.value, item.product)}
                     />
-                    {/* <i className="fa fa-minus text-danger"></i>
-                <h5 className="text-grey mt-1 mr-1 ml-1">2</h5>
-                <i className="fa fa-plus text-success"></i> */}
                   </div>
                   <div>
                     <h5 className="text-blue">${item.product.price}</h5>

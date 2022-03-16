@@ -52,7 +52,6 @@ const SingleProduct = () => {
               <p className="card-text">
                 Price: <em>${product.price}</em>
               </p>
-
               <a
                 onClick={() => addToCart(product)}
                 href="#"
