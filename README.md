@@ -136,7 +136,7 @@ The App components are wrapped with StoreProvider to give access to store items 
 
 ## Models
 
-The app has User, Product, Order and Order_Details models. There is a one to many relationship between User and Order, established by user_id foreign key. There is also a many to many relationship between Product and Order modals, established through a third assosicarion table, Order_Details. It holds the product_id, order_id and quantity
+The app has User, Product, Order and Order_Details models. There is a one to many relationship between User and Order, established by user_id foreign key. There is also a many to many relationship between Product and Order models, established through a third assosicarion table, Order_Details. It holds the product_id, order_id and quantity
 
 ![Model](/client/public/assets/modal.png)
 
