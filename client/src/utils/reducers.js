@@ -11,12 +11,6 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case UPDATE_CART_QUANTITY:
       const newItems = state.cartItems.map((product) => {
-        console.log("single product", action.purchaseQuantity);
-        console.log(
-          "product.product.purchaseQuantity",
-          product.purchaseQuantity
-        );
-        console.log("action.purchaseQuantity", action.purchaseQuantity);
         if (action.cartItem.id === product.product.id) {
           product.purchaseQuantity = action.purchaseQuantity;
         }
