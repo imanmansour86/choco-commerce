@@ -136,7 +136,7 @@ The App components are wrapped with StoreProvider to give access to store items 
 
 ## Models
 
-The app has User,Product,Order and Order_Details modals. There is a one to many relationship between User and Order, established by user_id foreign key. There is also a many to many relationship between Product and Order modals, established through a third assosicarion table, Order_Details. It holds the product_id, order_id and quantity
+The app has User, Product, Order and Order_Details models. There is a one to many relationship between User and Order, established by user_id foreign key. There is also a many to many relationship between Product and Order modals, established through a third assosicarion table, Order_Details. It holds the product_id, order_id and quantity
 
 ![Model](/client/public/assets/modal.png)
 
@@ -151,6 +151,25 @@ The app has User,Product,Order and Order_Details modals. There is a one to many 
 Payment service provider that allows checkout of products by processing credit card payment gateway. Front-end and Back-end need to be setup with appropirate published and secret keys. It’s a two factor authentication to ensure the payment information are not compromised. This app also uses StripeCheckout which renders the checkout along with required props as token and secret key
 
 ![Form](/client/public/assets/form.png)
+
+```
+    <StripeCheckout
+      name={name}
+      description={description}
+      amount={fromDollarToCent(amount)}
+      token={onToken(amount, description)}
+      currency={CURRENCY}
+      stripeKey={ }
+      zipCode
+      email
+      allowRememberMe
+      shippingAddress
+    >
+      <button className="btn btn-warning btn-block btn-lg ml-2">
+        Proceed to Checkout
+      </button>
+    </StripeCheckout>
+```
 
 - React reveal
 
