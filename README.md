@@ -104,7 +104,7 @@ LaRoche Chocolate is an E-Commerce website that allows users to view different k
 
 ## Features
 
-The app has several components: Home, NavTabs, SingleProduct, RouteChangeTracker, Cart, CheckoutForm, Login and Signup. The app uses reducers and store context to store cartItems, which are made accessible for the rest of the components who need access to it. The reducer is first initialized with empty array to hold cartItems. The reducer has several dispatch actions: ADD_TO_CART, UPDATE_CART_QUANTITY,REMOVE_FROM_CART,CLEAR_CART and INITIALIZE.
+The app has several components: Home, NavTabs, SingleProduct, RouteChangeTracker, Cart, CheckoutForm, Login and Signup. The app uses reducers and store context to store cartItems, which are made accessible for the rest of the components who need access to it. The reducer is first initialized with empty array to hold cartItems. The reducer has several dispatch actions: ADD_TO_CART, UPDATE_CART_QUANTITY ,REMOVE_FROM_CART CLEAR_CART and INITIALIZE
 
 ```
 const StoreProvider = ({ value = [], ...props }) => {
@@ -114,6 +114,24 @@ const StoreProvider = ({ value = [], ...props }) => {
 
   return <Provider value={[state, dispatch]} {...props} />;
 };
+```
+
+The App components are wrapped with StoreProvider to give access to store items for all the components that needs it
+
+```
+   <Router>
+      <StoreProvider>
+        <NavTabs />
+        <Routes>
+          <Route path="/" element={<MainContiner />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
+        </Routes>
+        <RouteChangeTracker />
+      </StoreProvider>
+    </Router>
 ```
 
 ## Models
