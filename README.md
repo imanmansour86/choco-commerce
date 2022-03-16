@@ -6,13 +6,25 @@
 
 # LaRoche Chocolate
 
-LaRoche Chocolate is an E-Commerce website that allows users to view different kinds of chocolates, read about chocolate details for each product and buy chocolates. Built with MySQl, Sequelize, Express, Node, bcrypt, JWT, and React
+LaRoche Chocolate is an E-Commerce website that allows users to view different kinds of chocolates, read about chocolate details for each product and buy chocolates. Built with MySQL, Sequelize, Express, Node, bcrypt, JWT, and React
 
 ## Deployed Link
 
 - [Deployed](https://peaceful-gorge-21480.herokuapp.com/)
 
 ## Table of Contents
+
+- [LaRoche Chocolate](#laroche-chocolate)
+  - [Deployed Link](#deployed-link)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Features](#features)
+  - [Models](#models)
+  - [Libraries](#libraries)
+  - [Built With](#built-with)
+  - [Author](#author)
+  - [License](#license)
 
 ## Installation
 
@@ -58,14 +70,6 @@ LaRoche Chocolate is an E-Commerce website that allows users to view different k
 
 ![Single](/client/public/assets/singleProduct.gif)
 
-- Delete cart
-
-![Delete](/client/public/assets/delete%20from%20cart.gif)
-
-- Pay Balanace
-
-![Pay](/client/public/assets/pay%20balances.gif)
-
 - Update Cart
 
 ![Update](/client/public/assets/update%20quantity.gif)
@@ -74,9 +78,17 @@ LaRoche Chocolate is an E-Commerce website that allows users to view different k
 
 ![Empty](/client/public/assets/emptycart.gif)
 
-- Empty Cart
+- Refresh Cart
 
 ![Refresh](/client/public/assets/refresh.gif)
+
+- Delete cart
+
+![Delete](/client/public/assets/delete%20from%20cart.gif)
+
+- Pay Balanace
+
+![Pay](/client/public/assets/pay%20balances.gif)
 
 - Animation
 
@@ -92,7 +104,17 @@ LaRoche Chocolate is an E-Commerce website that allows users to view different k
 
 ## Features
 
-The app has several components: Home, NavTabs, SingleProduct, RouteChangeTracker, Cart, CheckoutForm, Login and Signup. The app uses reducers and store context to store cartItems, which are made accessible for the rest of the components who need access to it.
+The app has several components: Home, NavTabs, SingleProduct, RouteChangeTracker, Cart, CheckoutForm, Login and Signup. The app uses reducers and store context to store cartItems, which are made accessible for the rest of the components who need access to it. The reducer is first initialized with empty array to hold cartItems. The reducer has several dispatch actions: ADD_TO_CART, UPDATE_CART_QUANTITY,REMOVE_FROM_CART,CLEAR_CART and INITIALIZE.
+
+```
+const StoreProvider = ({ value = [], ...props }) => {
+  const [state, dispatch] = useProductReducer({
+    cartItems: [],
+  });
+
+  return <Provider value={[state, dispatch]} {...props} />;
+};
+```
 
 ## Models
 
