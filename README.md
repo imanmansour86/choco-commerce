@@ -92,31 +92,52 @@ LaRoche Chocolate is an E-Commerce website that allows users to view different k
 
 ## Features
 
-When the user first opens the page, a list of activites appear on the page. When click on a single activity, the user is prompted to either sign up or login. After login, the user can see his created activities by creating the Activity tab in the nav bar. The user can also delete activities from his Activity page, or attend an activity on homepage. The homepage shows people signed up for each event, when the users clicks on the button to attend, his name is added to the people coming list
+The app has several components: Home, NavTabs, SingleProduct, RouteChangeTracker, Cart, CheckoutForm, Login and Signup. The app uses reducers and store context to store cartItems, which are made accessible for the rest of the components who need access to it.
 
-## Modals
+## Models
 
-Our app has many to many relationship between user and activity models, this is done through an assosicstion table that has user_id and activity_id. Users can attend many activities and activities belong to many users. There is a one to many relationship as well between user and activity, since the user can create many activities. Screenshot below shows our model's structure
+The app has User,Product,Order and Order_Details modals. There is a one to many relationship between User and Order, established by user_id foreign key. There is also a many to many relationship between Product and Order modals, established through a third assosicarion table, Order_Details. It holds the product_id, order_id and quantity.
 
-![Model](/public/images/models.png)
+## Libraries
+
+-Stripe
+
+Payment service provider that allows checkout of products by processing credit card payment gateway. Front-end and Back-end need to be setup with appropirate published and secret keys. It’s a two factor authentication to ensure the payment information are not compromised. This app also uses StripeCheckout which renders the checkout along with required props as token and secret key
+
+![Form](/client/public/assets/form.png)
+
+-React reveal
+
+Animation framework for React. It has basic animations such as fade, flip, zoom, rotate and a lot of more advanced animations. It allows to control all animations with props, Also it has server side rendering and high order components. Animation is established by importing the required animation and then wrapping the part to be animated by the animation tag
+
+![Reveal](/client/public/assets/reveal.png)
+
+-Google Analytics
+
+A web analytics service offered by Google that tracks and reports website traffic. Helps gain insight into the region the app users live in, track how much time they are spending on average, track which page is most visited, track page interaction: scrolling, clicking, user engagement
+and track revenue. After creating an account on the webiste, we need to created a property and data stream against our public URL. User interactions will be displayed on the dashboard
+
+![Google](/client/public/assets/google.png)
+
+- Models
+
+![Model](/client/public/assets/modal.png)
+
+- Relationship
+
+![Model](/client/public/assets/relationship.png)
 
 ## Built With
 
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Expressjs](https://expressjs.com/)
-- [Express-handlebars](https://www.npmjs.com/package/express-handlebars)
-- [Express-session](https://www.npmjs.com/package/express-session)
-- [Connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
 - [Sequelize](https://sequelize.org/)
 - [MySQL2](https://www.npmjs.com/package/mysql2)
-- [dotenv](https://www.npmjs.com/package/dotenv)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
-
-## Resources Used
-
-- [W3schools](https://www.w3schools.com)
-- [stackoverflow](https://stackoverflow.com)
-- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [React](https://reactjs.org/)
+- [Google Analytics](https://analytics.google.com/analytics/web/?_ga=2.149095414.1901556607.1647384686-1594085352.1647384686&_gac=1.81879652.1647405661.CjwKCAjw8sCRBhA6EiwA6_IF4WRaCIUfuLGza4ruSat8labJyk1d1_Bv8kGHKQf-gEAcoqxrebZ7wxoClWoQAvD_BwE#/p306851511/reports/intelligenthome)
+- [Stripe](https://stripe.com/)
+- [JWT](https://jwt.io/)
 
 ## Author
 
