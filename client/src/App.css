@@ -181,12 +181,6 @@ h2 {
     width: 30rem;
   }
   .singleproductContainer {
-    /* width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex; */
     flex-direction: column;
-    /* justify-content: center;
-    gap: 0px 20px; */
   }
 }

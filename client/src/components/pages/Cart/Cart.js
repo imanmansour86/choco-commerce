@@ -75,9 +75,6 @@ const Cart = () => {
             setReturnedWithSuccess(data);
           })
       );
-    // setTimeout(() => {
-    //   window.location.assign("/");
-    // }, 3000);
   };
   const onFailure = (data) => {
     setReturnedWithFailure(data);

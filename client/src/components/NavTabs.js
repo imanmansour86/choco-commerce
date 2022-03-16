@@ -24,18 +24,6 @@ const NavTabs = () => {
           </div>
 
           <div className="collapse navbar-collapse" id="myNavbar">
-            {/* <form className="navbar-form navbar-left">
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search"
-                />
-              </div>
-              <button type="submit" className="btn btn-default">
-                <span className="glyphicon glyphicon-search"></span>
-              </button>
-            </form> */}
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <Link to={`/`}>
