@@ -148,7 +148,7 @@ The app has User, Product, Order and Order_Details models. There is a one to man
 
 - Stripe
 
-Payment service provider that allows checkout of products by processing credit card payment gateway. Front-end and Back-end need to be setup with appropirate published and secret keys. It’s a two factor authentication to ensure the payment information are not compromised. This app also uses StripeCheckout which renders the checkout along with required props as token and secret key
+Payment service provider that allows checkout of products by processing credit card payment gateway. Front-end and Back-end need to be setup with appropirate published and secret keys. It’s a two factor authentication to ensure the payment information are not compromised. This app also uses StripeCheckout which renders the checkout along with required props as token and secret key. Stripe provides test credit card numbers, to test checkout use the following credit card information: 4242 4242 4242 4242 - Expiration: 10/25 CVV: 123 
 
 ![Form](/client/public/assets/form.png)
 
